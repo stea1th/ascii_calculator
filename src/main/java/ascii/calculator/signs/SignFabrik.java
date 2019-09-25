@@ -5,7 +5,6 @@ import ascii.calculator.model.*;
 public class SignFabrik {
 
     public static SignInterface createSign(char character) {
-        SignInterface signInterface;
         AbstractCoordinate coordinate;
         switch (character) {
             case '1':
@@ -30,7 +29,6 @@ public class SignFabrik {
                 coordinate = new Empty();
                 break;
         }
-        signInterface = new Sign(coordinate.getWidth(), coordinate.getProperties());
-        return signInterface;
+        return new Sign(coordinate.getWidth(), coordinate.getProperties());
     }
 }
