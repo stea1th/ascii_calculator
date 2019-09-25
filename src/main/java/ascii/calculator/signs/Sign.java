@@ -1,5 +1,6 @@
 package ascii.calculator.signs;
 
+import ascii.calculator.exception.CalculatorException;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Sign implements SignInterface {
     public Sign(Integer width, List<Pair<Integer, Integer>> properties) {
         this.width = width;
         createEmptyMatrix();
-        this.properties = properties != null? properties : new ArrayList<>();
+        this.properties = properties != null ? properties : new ArrayList<>();
         create();
     }
 
@@ -32,8 +33,16 @@ public class Sign implements SignInterface {
     }
 
     private void create() {
-        properties.forEach(p-> {
-            matrix[p.getKey()][p.getValue()] = "x";
+        properties.forEach(p -> {
+            if (p.getKey() >= HEIGHT || p.getValue() >= width) {
+                try {
+                    throw new CalculatorException("Invalid sign coordinate");
+                } catch (CalculatorException e) {
+                    System.err.println(e.getMessage());
+                    System.exit(-1);
+                }
+            }
+                matrix[p.getKey()][p.getValue()] = "x";
         });
     }
 }
