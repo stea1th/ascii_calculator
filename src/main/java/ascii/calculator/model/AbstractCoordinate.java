@@ -10,7 +10,7 @@ public abstract class AbstractCoordinate {
     private List<Pair<Integer, Integer>> properties = new ArrayList<>();
     private Integer width;
 
-    public AbstractCoordinate() {
+    AbstractCoordinate() {
         setCoordinates();
     }
 
