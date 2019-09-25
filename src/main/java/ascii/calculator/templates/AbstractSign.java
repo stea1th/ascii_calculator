@@ -1,20 +1,24 @@
 package ascii.calculator.templates;
 
+import javafx.util.Pair;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-abstract class AbstractSign implements Interf {
+abstract class AbstractSign implements SignInterface {
 
-    public static final Integer HEIGHT = 5;
-    public static final Integer WIDTH = 6;
-
-    String[][] matrix;
+    static final Integer HEIGHT = 5;
+    private static Integer Width;
+    private List<Pair<Integer, Integer>> properties = new ArrayList<>();
+    private String[][] matrix;
 
     AbstractSign() {
-        init();
+
     }
 
-    public void init() {
-        matrix = new String[HEIGHT][WIDTH];
+    void createEmptyMatrix() {
+        matrix = new String[HEIGHT][Width];
         for (String[] strings : matrix) {
             Arrays.fill(strings, " ");
         }
@@ -24,25 +28,21 @@ abstract class AbstractSign implements Interf {
         return matrix;
     }
 
-    //    public StringBuilder draw(String[][] matrix) {
-//        StringBuilder stringBuilder = new StringBuilder();
-////        for (String[] strings : matrix) {
-////            for(String string : strings) {
-//////                System.out.print(string);
-////                stringBuilder.append(string);
-////            }
-//////            System.out.println();
-////            stringBuilder.append("\n");
-////        }
-//
-//        for (int i = 0; i < matrix.length; i++) {
-//            for (int j = 0; j < matrix[i].length; j++) {
-//                stringBuilder.append(matrix[i][j]);
-//            }
-//            if (i < matrix.length - 1) {
-//                stringBuilder.append("\n");
-//            }
-//        }
-//        return stringBuilder;
-//    }
+    void create() {
+        properties.forEach(p-> {
+            matrix[p.getKey()][p.getValue()] = "x";
+        });
+    }
+
+    void addCoordinates(int row, int column) {
+        properties.add(new Pair<>(row, column));
+    }
+
+    void setCoordinates() {
+
+    }
+
+    public static void setWidth(Integer width) {
+        Width = width;
+    }
 }
