@@ -1,15 +1,11 @@
-package ascii.calculator.templates;
+package ascii.calculator.model;
 
-public class Plus extends AbstractSign{
+public class Plus extends AbstractCoordinate {
 
     public Plus() {
         setWidth(6);
-        createEmptyMatrix();
-        setCoordinates();
-        create();
     }
 
-    @Override
     void setCoordinates() {
         addCoordinates(1, 2);
         addCoordinates(2, 0);

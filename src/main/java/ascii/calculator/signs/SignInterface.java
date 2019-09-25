@@ -1,4 +1,4 @@
-package ascii.calculator.templates;
+package ascii.calculator.signs;
 
 public interface SignInterface {
 

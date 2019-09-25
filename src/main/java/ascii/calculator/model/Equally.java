@@ -1,15 +1,11 @@
-package ascii.calculator.templates;
+package ascii.calculator.model;
 
-public class Equally  extends AbstractSign{
+public class Equally extends AbstractCoordinate {
 
     public Equally() {
         setWidth(6);
-        createEmptyMatrix();
-        setCoordinates();
-        create();
     }
 
-    @Override
     void setCoordinates() {
         addCoordinates(1,0);
         addCoordinates(1,1);
