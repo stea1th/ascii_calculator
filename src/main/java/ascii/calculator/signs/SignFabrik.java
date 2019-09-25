@@ -23,6 +23,9 @@ public class SignFabrik {
             case '=':
                 coordinate = new Equally();
                 break;
+            case '-':
+                coordinate = new Minus();
+                break;
             default:
                 coordinate = new Empty();
                 break;

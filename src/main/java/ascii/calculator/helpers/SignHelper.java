@@ -23,7 +23,6 @@ public class SignHelper {
     }
 
     public static List<SignInterface> transformToList(String result) {
-
         return result.chars().mapToObj(i -> SignFabrik.createSign((char) i))
                 .collect(Collectors.toList());
     }
