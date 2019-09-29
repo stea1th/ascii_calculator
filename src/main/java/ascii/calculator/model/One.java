@@ -7,13 +7,11 @@ public class One extends AbstractCoordinate {
     }
 
     void setCoordinates() {
-        addCoordinates(0, 4);
-        addCoordinates(1, 2);
-        addCoordinates(2, 0);
-        addCoordinates(2, 4);
-        addCoordinates(3, 4);
-        addCoordinates(4, 4);
-        addCoordinates(1, 4);
+        addCoordinates(0, createArray(4));
+        addCoordinates(1, createArray(2, 4));
+        addCoordinates(2, createArray(0, 4));
+        addCoordinates(3, createArray(4));
+        addCoordinates(4, createArray(4));
     }
 
 }

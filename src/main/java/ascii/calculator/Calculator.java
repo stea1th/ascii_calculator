@@ -7,8 +7,13 @@ import ascii.calculator.helpers.StringHelper;
 public class Calculator {
 
     public static void main(String[] args) {
-//        String argument = args[0];
-        String argument = "-1+2 - 3+ 2 -3 ";
+//        compute(args[0]);
+        compute("-1+2 - 3+ 2 -3 ");
+
+
+    }
+
+    private static void compute(String argument){
         Integer computed = MathHelper.compute(StringHelper.cutStringToPairs(argument));
         argument += " = " + computed;
         SignHelper.printResult(SignHelper.transformToList(argument));

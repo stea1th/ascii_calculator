@@ -5,4 +5,9 @@ public class Empty extends AbstractCoordinate {
     public Empty() {
         setWidth(3);
     }
+
+    @Override
+    void setCoordinates() {
+
+    }
 }

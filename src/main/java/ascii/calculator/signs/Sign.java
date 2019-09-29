@@ -3,21 +3,19 @@ package ascii.calculator.signs;
 import ascii.calculator.exception.CalculatorException;
 import javafx.util.Pair;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Sign implements SignInterface {
 
     public static final Integer HEIGHT = 5;
     private Integer width;
-    private List<Pair<Integer, Integer>> properties;
+    private Map<Integer, int[]> properties;
     private String[][] matrix;
 
-    public Sign(Integer width, List<Pair<Integer, Integer>> properties) {
+    Sign(Integer width, Map<Integer, int[]> properties) {
         this.width = width;
         createEmptyMatrix();
-        this.properties = properties != null ? properties : new ArrayList<>();
+        this.properties = properties != null ? properties : new HashMap<>();
         create();
     }
 
@@ -33,16 +31,27 @@ public class Sign implements SignInterface {
     }
 
     private void create() {
-        properties.forEach(p -> {
-            if (p.getKey() >= HEIGHT || p.getValue() >= width) {
+
+        properties.forEach((key, value) -> {
+            if (key >= HEIGHT) {
                 try {
-                    throw new CalculatorException("Invalid sign coordinate");
+                    throw new CalculatorException("Invalid height coordinate");
                 } catch (CalculatorException e) {
                     System.err.println(e.getMessage());
                     System.exit(-1);
                 }
             }
-                matrix[p.getKey()][p.getValue()] = "x";
+            Arrays.stream(value).forEach(v -> {
+                if(v >= width) {
+                    try {
+                        throw new CalculatorException("Invalid width coordinate");
+                    } catch (CalculatorException e) {
+                        System.err.println(e.getMessage());
+                        System.exit(-1);
+                    }
+                }
+                matrix[key][v] = "x";
+            });
         });
     }
 }
