@@ -33,14 +33,12 @@ public class Sign implements SignInterface {
 
     private void create() {
 
-        properties.forEach((key, value) -> {
-            Arrays.stream(value).forEach(v -> {
-                try{
-                    matrix[key][v] = "x";
-                } catch (Exception e) {
-                    throw new CalculatorException("Invalid width coordinate");
-                }
-            });
-        });
+        properties.forEach((key, value) -> Arrays.stream(value).forEach(v -> {
+            try{
+                matrix[key][v] = "x";
+            } catch (Exception e) {
+                throw new CalculatorException("Invalid width coordinate");
+            }
+        }));
     }
 }

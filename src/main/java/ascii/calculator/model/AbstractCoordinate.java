@@ -1,9 +1,9 @@
 package ascii.calculator.model;
 
 import ascii.calculator.exception.CalculatorException;
-import javafx.util.Pair;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 public abstract class AbstractCoordinate {

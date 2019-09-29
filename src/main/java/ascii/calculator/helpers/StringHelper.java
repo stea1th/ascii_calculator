@@ -1,11 +1,17 @@
 package ascii.calculator.helpers;
 
+import ascii.calculator.exception.CalculatorException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringHelper {
+
+    private StringHelper() {
+        throw new CalculatorException("Utility Class");
+    }
 
     private static final String REGEX = "[-+*:]+";
 

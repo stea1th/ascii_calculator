@@ -1,8 +1,13 @@
 package ascii.calculator.signs;
 
+import ascii.calculator.exception.CalculatorException;
 import ascii.calculator.model.*;
 
 public class SignFabric {
+
+    private SignFabric() {
+        throw new CalculatorException("Utility Class");
+    }
 
     public static SignInterface createSign(char character) {
         AbstractCoordinate coordinate;

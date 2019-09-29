@@ -8,6 +8,6 @@ public class Empty extends AbstractCoordinate {
 
     @Override
     void setCoordinates() {
-
+        // Do nothing because it's empty.
     }
 }

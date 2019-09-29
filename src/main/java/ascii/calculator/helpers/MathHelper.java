@@ -1,11 +1,16 @@
 package ascii.calculator.helpers;
 
+import ascii.calculator.exception.CalculatorException;
+
 import java.util.List;
 
 public class MathHelper {
 
     private static Integer result;
 
+    private MathHelper() {
+        throw new CalculatorException("Utility Class");
+    }
 
     public static Integer compute(List<String> expressions) {
         result = 0;
@@ -17,6 +22,10 @@ public class MathHelper {
                 case '-':
                     substract(StringHelper.removeNonDigit(ex));
                     break;
+                default:
+                    doNothing();
+                    break;
+
             }
         }
         return result;
@@ -28,6 +37,10 @@ public class MathHelper {
 
     private static void substract(int digit) {
         result -= digit;
+    }
+
+    private static void doNothing() {
+
     }
 
 
