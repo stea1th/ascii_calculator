@@ -13,13 +13,25 @@ public class TestDataGenerator {
     }
 
     public static Sign generateSign(int width) {
-        return new Sign(width, generateProperties());
+        return generateSign(width, generateProperties());
+    }
+
+    public static Sign generateSign(int width, Map<Integer, int[]> props){
+        return new Sign(width, props);
     }
 
     private static Map<Integer, int[]> generateProperties() {
         Map<Integer, int[]> props = new HashMap<>();
         props.put(0, new int[]{0, 1, 2});
         props.put(1, new int[]{0, 2});
+        return props;
+    }
+
+    public static Map<Integer, int[]> generatePlusProperties() {
+        Map<Integer, int[]> props = new HashMap<>();
+        props.put(1, new int[]{2});
+        props.put(2, new int[]{0, 1, 2, 3, 4});
+        props.put(3, new int[]{2});
         return props;
     }
 

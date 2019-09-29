@@ -1,9 +1,10 @@
 package ascii.calculator.signs;
 
 import ascii.calculator.exception.CalculatorException;
-import javafx.util.Pair;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Sign implements SignInterface {
 

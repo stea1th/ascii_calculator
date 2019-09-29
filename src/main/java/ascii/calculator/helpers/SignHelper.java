@@ -1,7 +1,7 @@
 package ascii.calculator.helpers;
 
 import ascii.calculator.signs.Sign;
-import ascii.calculator.signs.SignFabrik;
+import ascii.calculator.signs.SignFabric;
 import ascii.calculator.signs.SignInterface;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class SignHelper {
     }
 
     public static List<SignInterface> transformToList(String result) {
-        return result.chars().mapToObj(i -> SignFabrik.createSign((char) i))
+        return result.chars().mapToObj(i -> SignFabric.createSign((char) i))
                 .collect(Collectors.toList());
     }
 }

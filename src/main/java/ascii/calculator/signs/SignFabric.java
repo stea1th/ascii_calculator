@@ -2,7 +2,7 @@ package ascii.calculator.signs;
 
 import ascii.calculator.model.*;
 
-public class SignFabrik {
+public class SignFabric {
 
     public static SignInterface createSign(char character) {
         AbstractCoordinate coordinate;
