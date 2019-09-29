@@ -43,20 +43,10 @@ public abstract class AbstractCoordinate {
 
     int[] createArrayFromTo(int from, int to) {
         if(from > to) {
-            try {
                 throw new CalculatorException("From-value must be smaller than to-value");
-            } catch (CalculatorException e) {
-                System.err.println(e.getMessage());
-                System.exit(-1);
-            }
         }
         if(from < 0) {
-            try {
                 throw new CalculatorException("Coordinate value can't be smaller as 0");
-            } catch (CalculatorException e) {
-                System.err.println(e.getMessage());
-                System.exit(-1);
-            }
         }
 
         return IntStream.rangeClosed(from, to)
