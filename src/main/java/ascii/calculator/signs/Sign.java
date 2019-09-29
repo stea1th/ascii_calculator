@@ -12,7 +12,7 @@ public class Sign implements SignInterface {
     private Map<Integer, int[]> properties;
     private String[][] matrix;
 
-    Sign(Integer width, Map<Integer, int[]> properties) {
+    public Sign(Integer width, Map<Integer, int[]> properties) {
         this.width = width;
         createEmptyMatrix();
         this.properties = properties != null ? properties : new HashMap<>();
@@ -33,24 +33,12 @@ public class Sign implements SignInterface {
     private void create() {
 
         properties.forEach((key, value) -> {
-            if (key >= HEIGHT) {
-                try {
-                    throw new CalculatorException("Invalid height coordinate");
-                } catch (CalculatorException e) {
-                    System.err.println(e.getMessage());
-                    System.exit(-1);
-                }
-            }
             Arrays.stream(value).forEach(v -> {
-                if(v >= width) {
-                    try {
-                        throw new CalculatorException("Invalid width coordinate");
-                    } catch (CalculatorException e) {
-                        System.err.println(e.getMessage());
-                        System.exit(-1);
-                    }
+                try{
+                    matrix[key][v] = "x";
+                } catch (Exception e) {
+                    throw new CalculatorException("Invalid width coordinate");
                 }
-                matrix[key][v] = "x";
             });
         });
     }
