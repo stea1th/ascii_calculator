@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class SignHelper {
 
-    public SignHelper() {
+    private SignHelper() {
         throw new CalculatorException("Utility Class");
     }
 
