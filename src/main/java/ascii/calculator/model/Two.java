@@ -6,7 +6,7 @@ public class Two extends AbstractCoordinate {
         setWidth(6);
     }
 
-    void setCoordinates() {
+    void load() {
         Three three = new Three();
         three.removeCoordinate(3);
         addCoordinates(three.getProperties());

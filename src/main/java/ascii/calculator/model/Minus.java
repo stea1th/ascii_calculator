@@ -7,7 +7,7 @@ public class Minus extends AbstractCoordinate {
     }
 
     @Override
-    void setCoordinates() {
+    void load() {
         addCoordinates(2, createArrayFromTo(0, 4));
     }
 }

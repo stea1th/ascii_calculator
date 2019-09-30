@@ -6,7 +6,7 @@ public class Equally extends AbstractCoordinate {
         setWidth(6);
     }
 
-    void setCoordinates() {
+    void load() {
         addCoordinates(1, createArrayFromTo(0, 3));
         addCoordinates(3, createArrayFromTo(0, 3));
     }

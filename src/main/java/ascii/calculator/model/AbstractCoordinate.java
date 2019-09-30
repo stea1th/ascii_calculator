@@ -12,10 +12,10 @@ public abstract class AbstractCoordinate {
     private Integer width;
 
     AbstractCoordinate() {
-        setCoordinates();
+        load();
     }
 
-    abstract void setCoordinates();
+    abstract void load();
 
     void addCoordinates(int row, int[] columns){
         properties.put(row, columns);

@@ -20,7 +20,7 @@ public class MathHelper {
                     addTo(StringHelper.removeNonDigit(ex));
                     break;
                 case '-':
-                    substract(StringHelper.removeNonDigit(ex));
+                    subtract(StringHelper.removeNonDigit(ex));
                     break;
                 default:
                     doNothing();
@@ -35,7 +35,7 @@ public class MathHelper {
         result += digit;
     }
 
-    private static void substract(int digit) {
+    private static void subtract(int digit) {
         result -= digit;
     }
 

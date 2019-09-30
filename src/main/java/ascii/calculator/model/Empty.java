@@ -7,7 +7,7 @@ public class Empty extends AbstractCoordinate {
     }
 
     @Override
-    void setCoordinates() {
+    void load() {
         // Do nothing because it's empty.
     }
 }
