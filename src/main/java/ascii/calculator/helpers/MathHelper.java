@@ -1,8 +1,11 @@
 package ascii.calculator.helpers;
 
+import ascii.calculator.enums.Operator;
 import ascii.calculator.exception.CalculatorException;
 
 import java.util.List;
+
+import static ascii.calculator.enums.Operator.*;
 
 public class MathHelper {
 
@@ -15,13 +18,14 @@ public class MathHelper {
     public static Integer compute(List<String> expressions) {
         result = 0;
         for (String ex : expressions) {
-            switch (ex.charAt(0)) {
-                case '+':
+            switch (getOperator(ex.charAt(0))) {
+                case PLUS:
                     addTo(StringHelper.removeNonDigit(ex));
                     break;
-                case '-':
+                case MINUS:
                     subtract(StringHelper.removeNonDigit(ex));
                     break;
+                case MULTIPLY:
                 default:
                     doNothing();
                     break;
