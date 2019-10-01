@@ -17,12 +17,9 @@ public class MathHelper {
         throw new CalculatorException("Utility Class");
     }
 
-    public static Integer compute(Multimap<String, Integer> expressions) {
+    public static Integer compute(List<Pair<String, Integer>> expressions) {
         result = 0;
-        boolean isTrue = true;
-        while(isTrue) {
-            expressions.
-        }
+
 
 //        for (int i = 0; i < expressions.size(); i++) {
 //            String ex = expressions.get(i);
@@ -43,6 +40,22 @@ public class MathHelper {
 //            }
 //        }
         return result;
+    }
+
+    private static List<Pair<String, Integer>> turnMultiplyAndDivide(List<Pair<String, Integer>> expressions) {
+        boolean isTrue = true;
+        while(isTrue) {
+            isTrue = false;
+            for (int i = 0; i <expressions.size() ; i++) {
+                Pair<String, Integer> pair = expressions.get(i);
+                String action = pair.getKey();
+                if(getOperator(action).equals(MULTIPLY)) {
+
+
+                }
+            }
+
+        }
     }
 
     private static void multiply(Integer... digits) {
