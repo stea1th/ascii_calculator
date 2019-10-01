@@ -4,19 +4,19 @@ import java.util.EnumSet;
 
 public enum Operator {
 
-    PLUS('+'),
-    MINUS('-'),
-    MULTIPLY('*');
+    PLUS("+"),
+    MINUS("-"),
+    MULTIPLY("*");
 
-    public final char label;
+    public final String label;
 
-    Operator(char label) {
+    Operator(String label) {
         this.label = label;
     }
 
-    public static Operator getOperator(char sign) {
+    public static Operator getOperator(String sign) {
         EnumSet<Operator> allOperators = EnumSet.allOf(Operator.class);
-        return allOperators.stream().filter(i-> i.label == sign)
+        return allOperators.stream().filter(i-> i.label.equals(sign))
                 .findFirst()
                 .orElse(null);
     }

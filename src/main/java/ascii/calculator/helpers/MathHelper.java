@@ -2,6 +2,8 @@ package ascii.calculator.helpers;
 
 import ascii.calculator.enums.Operator;
 import ascii.calculator.exception.CalculatorException;
+import com.google.common.collect.Multimap;
+import javafx.util.Pair;
 
 import java.util.List;
 
@@ -15,32 +17,44 @@ public class MathHelper {
         throw new CalculatorException("Utility Class");
     }
 
-    public static Integer compute(List<String> expressions) {
+    public static Integer compute(Multimap<String, Integer> expressions) {
         result = 0;
-        for (String ex : expressions) {
-            switch (getOperator(ex.charAt(0))) {
-                case PLUS:
-                    addTo(StringHelper.removeNonDigit(ex));
-                    break;
-                case MINUS:
-                    subtract(StringHelper.removeNonDigit(ex));
-                    break;
-                case MULTIPLY:
-                default:
-                    doNothing();
-                    break;
-
-            }
+        boolean isTrue = true;
+        while(isTrue) {
+            expressions.
         }
+
+//        for (int i = 0; i < expressions.size(); i++) {
+//            String ex = expressions.get(i);
+//            switch (getOperator(ex.charAt(0))) {
+//                case PLUS:
+//                    addTo(StringHelper.removeNonDigits(ex));
+//                    break;
+//                case MINUS:
+//                    subtract(StringHelper.removeNonDigits(ex));
+//                    break;
+//                case MULTIPLY:
+//                    multiply()
+//
+//                default:
+//                    doNothing();
+//                    break;
+//
+//            }
+//        }
         return result;
     }
 
-    private static void addTo(int digit) {
-        result += digit;
+    private static void multiply(Integer... digits) {
+
     }
 
-    private static void subtract(int digit) {
-        result -= digit;
+    private static void addTo(Integer... digits) {
+        result += digits[0];
+    }
+
+    private static void subtract(Integer... digits) {
+        result -= digits[0];
     }
 
     private static void doNothing() {

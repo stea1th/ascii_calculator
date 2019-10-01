@@ -60,8 +60,14 @@
 
         <junit5.version>5.5.2</junit5.version>
         <mockito.version>3.0.0</mockito.version>
+        <guava.version>28.1-jre</guava.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -85,7 +91,6 @@
                     <artifactId>objenesis</artifactId>
                 </exclusion>
             </exclusions>
-
         </dependency>
 
     </dependencies>
