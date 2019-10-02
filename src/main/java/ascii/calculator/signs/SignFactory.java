@@ -1,7 +1,7 @@
 package ascii.calculator.signs;
 
 import ascii.calculator.exception.CalculatorException;
-import ascii.calculator.model.*;
+import ascii.calculator.model.AbstractCoordinate;
 import ascii.calculator.model.numbers.*;
 import ascii.calculator.model.operators.Divide;
 import ascii.calculator.model.operators.Minus;
@@ -13,9 +13,9 @@ import ascii.calculator.model.symbols.Point;
 
 import static ascii.calculator.enums.Operator.getOperator;
 
-public class SignFabric {
+public class SignFactory {
 
-    private SignFabric() {
+    private SignFactory() {
         throw new CalculatorException("Utility Class");
     }
 

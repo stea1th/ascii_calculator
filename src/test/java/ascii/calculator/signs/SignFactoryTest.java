@@ -3,16 +3,14 @@ package ascii.calculator.signs;
 import ascii.calculator.TestDataGenerator;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class SignFabricTest {
+class SignFactoryTest {
 
     @Test
     void createSign() {
         SignInterface testSign = TestDataGenerator.generateSign(6, TestDataGenerator.generatePlusProperties());
-        SignInterface sign = SignFabric.createSign("+");
+        SignInterface sign = SignFactory.createSign("+");
 
         assertArrayEquals(testSign.getMatrix(), sign.getMatrix());
 
