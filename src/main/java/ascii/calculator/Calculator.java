@@ -10,8 +10,7 @@ import java.text.DecimalFormat;
 public class Calculator {
 
     public static void main(String[] args) {
-//        compute(args[0]);
-        compute("6 + 5/3.2");
+        compute(args[0]);
     }
 
     private static void compute(String argument){

@@ -31,7 +31,7 @@ public enum Operator {
 
     public static Operator getOperator(String sign) {
         EnumSet<Operator> allOperators = EnumSet.allOf(Operator.class);
-        return allOperators.stream().filter(i-> i.label.equals(sign))
+        return allOperators.stream().filter(i -> i.label.equals(sign))
                 .findFirst()
                 .orElse(null);
     }

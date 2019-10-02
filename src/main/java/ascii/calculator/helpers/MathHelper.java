@@ -54,7 +54,6 @@ public class MathHelper {
                     result = result.subtract(i.getValue());
                     break;
                 default:
-                    doNothing();
                     break;
             }
         });
@@ -71,9 +70,4 @@ public class MathHelper {
         }
         return null;
     }
-
-    private static void doNothing() {
-    }
-
-
 }

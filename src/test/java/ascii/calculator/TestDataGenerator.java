@@ -44,16 +44,4 @@ public class TestDataGenerator {
                 {" ", " ", " "},
         };
     }
-
-//    private String[][] createEmptyMatrix(){
-//        return createEmptyMatrix(5, 6);
-//    }
-//
-//    private String[][] createEmptyMatrix(int height, int width ){
-//        String[][]matrix = new String[height][width];
-//        for (String[] strings : matrix) {
-//            Arrays.fill(strings, " ");
-//        }
-//        return matrix;
-//    }
 }
