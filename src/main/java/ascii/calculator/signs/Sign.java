@@ -21,7 +21,7 @@ public class Sign implements SignInterface {
         create();
     }
 
-    public <T extends AbstractCoordinate> Sign(T coordinate){
+    public <T extends AbstractCoordinate> Sign(T coordinate) {
         this.width = coordinate.getWidth();
         createEmptyMatrix();
         this.properties = coordinate.getProperties() != null ? coordinate.getProperties() : new HashMap<>();
@@ -41,7 +41,7 @@ public class Sign implements SignInterface {
 
     private void create() {
         properties.forEach((key, value) -> Arrays.stream(value).forEach(v -> {
-            try{
+            try {
                 matrix[key][v] = "x";
             } catch (Exception e) {
                 throw new CalculatorException("Invalid width coordinate");

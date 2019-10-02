@@ -31,10 +31,6 @@ public abstract class AbstractCoordinate {
         this.properties = properties;
     }
 
-    void removeCoordinate(int row){
-        properties.remove(row);
-    }
-
     public Map<Integer, int[]> getProperties() {
         return properties;
     }

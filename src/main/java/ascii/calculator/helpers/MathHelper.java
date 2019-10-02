@@ -2,12 +2,12 @@ package ascii.calculator.helpers;
 
 import ascii.calculator.enums.Operator;
 import ascii.calculator.exception.CalculatorException;
-import com.google.common.collect.Multimap;
 import javafx.util.Pair;
 
 import java.util.List;
 
-import static ascii.calculator.enums.Operator.*;
+import static ascii.calculator.enums.Operator.MULTIPLY;
+import static ascii.calculator.enums.Operator.getOperator;
 
 public class MathHelper {
 

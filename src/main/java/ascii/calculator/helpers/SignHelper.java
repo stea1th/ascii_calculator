@@ -28,7 +28,7 @@ public class SignHelper {
     }
 
     public static List<SignInterface> transformToList(String result) {
-        return result.chars().mapToObj(i -> SignFabric.createSign((char) i))
+        return result.codePoints().mapToObj(i -> SignFabric.createSign(String.valueOf((char) i)))
                 .collect(Collectors.toList());
     }
 }

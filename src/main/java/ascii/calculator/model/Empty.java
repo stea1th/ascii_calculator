@@ -10,8 +10,6 @@ public class Empty extends AbstractCoordinate {
         super(width);
     }
 
-
-
     @Override
     void load() {
         // Do nothing because it's empty.

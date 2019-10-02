@@ -12,7 +12,7 @@ class SignFabricTest {
     @Test
     void createSign() {
         SignInterface testSign = TestDataGenerator.generateSign(6, TestDataGenerator.generatePlusProperties());
-        SignInterface sign = SignFabric.createSign('+');
+        SignInterface sign = SignFabric.createSign("+");
 
         assertArrayEquals(testSign.getMatrix(), sign.getMatrix());
 

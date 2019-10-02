@@ -8,7 +8,7 @@ public class Calculator {
 
     public static void main(String[] args) {
 //        compute(args[0]);
-        compute("2 + 2*3 - 2 * 4 + 3");
+        compute("12 + 4*32");
     }
 
     private static void compute(String argument){

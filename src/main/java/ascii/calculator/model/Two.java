@@ -11,9 +11,7 @@ public class Two extends AbstractCoordinate {
     }
 
     void load() {
-        Three three = new Three();
-        three.removeCoordinate(3);
-        addCoordinates(three.getProperties());
+        addCoordinates(new Three().getProperties());
         addCoordinates(3, createArray(0));
     }
 }

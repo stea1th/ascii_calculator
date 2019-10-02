@@ -1,10 +1,8 @@
 package ascii.calculator.helpers;
 
 import ascii.calculator.exception.CalculatorException;
-import com.google.common.collect.Multimap;
 import javafx.util.Pair;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,12 +30,6 @@ public class StringHelper {
             result.add(createPair(group));
         }
         return result;
-    }
-
-    static Integer[] removeNonDigits(String... expression) {
-        return Arrays.stream(expression)
-                .map(i -> Integer.valueOf(i.replaceFirst(OPERATOR, "")))
-                .toArray(Integer[]::new);
     }
 
     private static Pair<String, Integer> createPair(String expression) {
