@@ -27,7 +27,9 @@ public class StringHelper {
         Pattern regex = Pattern.compile(OPERATOR + BODY);
         Matcher matcher = regex.matcher(expression.replace(" ", ""));
         while (matcher.find()) {
-            result.add(createPair(matcher.group()));
+            String group = matcher.group();
+            System.out.println(group);
+            result.add(createPair(group));
         }
         return result;
     }
@@ -39,6 +41,6 @@ public class StringHelper {
     }
 
     private static Pair<String, Integer> createPair(String expression) {
-        return new Pair<>(expression.replace(BODY, ""), Integer.valueOf(expression.replace(OPERATOR, "")));
+        return new Pair<>(expression.replaceFirst(BODY, ""), Integer.valueOf(expression.replaceFirst(OPERATOR, "")));
     }
 }

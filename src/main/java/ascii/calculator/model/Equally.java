@@ -3,7 +3,11 @@ package ascii.calculator.model;
 public class Equally extends AbstractCoordinate {
 
     public Equally() {
-        setWidth(6);
+        super();
+    }
+
+    public Equally(int width) {
+        super(width);
     }
 
     void load() {

@@ -3,7 +3,11 @@ package ascii.calculator.model;
 public class Minus extends AbstractCoordinate {
 
     public Minus() {
-        setWidth(6);
+        super();
+    }
+
+    public Minus(int width) {
+        super(width);
     }
 
     @Override

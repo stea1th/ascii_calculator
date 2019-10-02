@@ -3,7 +3,11 @@ package ascii.calculator.model;
 public class One extends AbstractCoordinate {
 
     public One() {
-        setWidth(6);
+        super();
+    }
+
+    public One(int width) {
+        super(width);
     }
 
     void load() {

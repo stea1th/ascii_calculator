@@ -1,6 +1,7 @@
 package ascii.calculator.signs;
 
 import ascii.calculator.exception.CalculatorException;
+import ascii.calculator.model.AbstractCoordinate;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 public class Sign implements SignInterface {
 
     public static final Integer HEIGHT = 5;
-    private Integer width;
+    private final Integer width;
     private Map<Integer, int[]> properties;
     private String[][] matrix;
 
@@ -17,6 +18,13 @@ public class Sign implements SignInterface {
         this.width = width;
         createEmptyMatrix();
         this.properties = properties != null ? properties : new HashMap<>();
+        create();
+    }
+
+    public <T extends AbstractCoordinate> Sign(T coordinate){
+        this.width = coordinate.getWidth();
+        createEmptyMatrix();
+        this.properties = coordinate.getProperties() != null ? coordinate.getProperties() : new HashMap<>();
         create();
     }
 
@@ -32,7 +40,6 @@ public class Sign implements SignInterface {
     }
 
     private void create() {
-
         properties.forEach((key, value) -> Arrays.stream(value).forEach(v -> {
             try{
                 matrix[key][v] = "x";

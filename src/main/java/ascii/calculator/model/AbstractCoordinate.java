@@ -9,9 +9,15 @@ import java.util.stream.IntStream;
 public abstract class AbstractCoordinate {
 
     private Map<Integer, int[]> properties = new HashMap<>();
-    private Integer width;
+    private final Integer width;
 
     AbstractCoordinate() {
+        this.width = 6;
+        load();
+    }
+
+    public AbstractCoordinate(int width) {
+        this.width = width;
         load();
     }
 
@@ -35,10 +41,6 @@ public abstract class AbstractCoordinate {
 
     public Integer getWidth() {
         return width;
-    }
-
-    void setWidth(Integer width) {
-        this.width = width;
     }
 
     int[] createArrayFromTo(int from, int to) {

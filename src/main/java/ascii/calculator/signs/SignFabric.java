@@ -21,6 +21,9 @@ public class SignFabric {
             case '3':
                 coordinate = new Three();
                 break;
+            case '4':
+                coordinate = new Four();
+                break;
             case '+':
                 coordinate = new Plus();
                 break;
@@ -30,10 +33,13 @@ public class SignFabric {
             case '-':
                 coordinate = new Minus();
                 break;
+            case '*':
+                coordinate = new Multiply();
+                break;
             default:
-                coordinate = new Empty();
+                coordinate = new Empty(3);
                 break;
         }
-        return new Sign(coordinate.getWidth(), coordinate.getProperties());
+        return new Sign(coordinate);
     }
 }
