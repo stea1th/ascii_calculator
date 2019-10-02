@@ -71,6 +71,7 @@ public class SignFabric {
             case DIVIDE:
                 coordinate = new Divide();
                 break;
+            case EMPTY:
             default:
                 coordinate = new Empty(3);
                 break;

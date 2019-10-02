@@ -1,11 +1,13 @@
 package ascii.calculator;
 
 import ascii.calculator.helpers.MathHelper;
-import ascii.calculator.helpers.SignHelper;
 import ascii.calculator.helpers.StringHelper;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
+
+import static ascii.calculator.helpers.SignHelper.printResult;
+import static ascii.calculator.helpers.SignHelper.transformToList;
+import static ascii.calculator.helpers.StringHelper.formatResult;
 
 public class Calculator {
 
@@ -15,8 +17,7 @@ public class Calculator {
 
     private static void compute(String argument){
         BigDecimal computed = MathHelper.compute(StringHelper.cutStringToPairs(argument));
-        DecimalFormat format = new DecimalFormat("0.##");
-        argument += " = " + format.format(computed.setScale(2, BigDecimal.ROUND_HALF_EVEN));
-        SignHelper.printResult(SignHelper.transformToList(argument));
+        String result = formatResult(argument, computed);
+        printResult(transformToList(result));
     }
 }

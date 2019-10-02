@@ -4,6 +4,7 @@ import ascii.calculator.exception.CalculatorException;
 import javafx.util.Pair;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,6 +33,12 @@ public class StringHelper {
     }
 
     private static Pair<String, BigDecimal> createPair(String expression) {
-        return new Pair<>(expression.replaceFirst(BODY, ""), BigDecimal.valueOf(Double.parseDouble(expression.replaceFirst(OPERATOR, ""))));
+        return new Pair<>(expression.replaceFirst(BODY, ""),
+                BigDecimal.valueOf(Double.parseDouble(expression.replaceFirst(OPERATOR, ""))));
+    }
+
+    public static String formatResult(String expression, BigDecimal computed) {
+        DecimalFormat format = new DecimalFormat("0.##");
+        return expression + " = " + format.format(computed.setScale(2, BigDecimal.ROUND_HALF_EVEN));
     }
 }
