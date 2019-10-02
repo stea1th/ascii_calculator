@@ -56,6 +56,13 @@ public class SignFabric {
             case MULTIPLY:
                 coordinate = new Multiply();
                 break;
+            case COMMA:
+            case POINT:
+                coordinate = new Point(3);
+                break;
+            case DIVIDE:
+                coordinate = new Divide();
+                break;
             default:
                 coordinate = new Empty(3);
                 break;

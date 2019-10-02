@@ -10,6 +10,7 @@ public enum Operator {
     DIVIDE("/"),
     EQUALLY("="),
     EMPTY(" "),
+    COMMA(","),
     POINT("."),
     ONE("1"),
     TWO("2"),
