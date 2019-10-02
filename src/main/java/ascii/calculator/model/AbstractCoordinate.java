@@ -11,7 +11,7 @@ public abstract class AbstractCoordinate {
     private Map<Integer, int[]> properties = new HashMap<>();
     private final Integer width;
 
-    AbstractCoordinate() {
+    public AbstractCoordinate() {
         this.width = 6;
         load();
     }
@@ -21,13 +21,13 @@ public abstract class AbstractCoordinate {
         load();
     }
 
-    abstract void load();
+    protected abstract void load();
 
-    void addCoordinates(int row, int[] columns){
+    protected void addCoordinates(int row, int[] columns){
         properties.put(row, columns);
     }
 
-    void addCoordinates(Map<Integer, int[]> properties) {
+    protected void addCoordinates(Map<Integer, int[]> properties) {
         this.properties = properties;
     }
 
@@ -39,7 +39,7 @@ public abstract class AbstractCoordinate {
         return width;
     }
 
-    int[] createArrayFromTo(int from, int to) {
+    protected int[] createArrayFromTo(int from, int to) {
         if(from > to) {
                 throw new CalculatorException("From-value must be smaller than to-value");
         }
@@ -51,7 +51,7 @@ public abstract class AbstractCoordinate {
                 .toArray();
     }
 
-    int[] createArray(int... values){
+    protected int[] createArray(int... values){
         return values;
     }
 }

@@ -1,4 +1,6 @@
-package ascii.calculator.model;
+package ascii.calculator.model.numbers;
+
+import ascii.calculator.model.AbstractCoordinate;
 
 public class Two extends AbstractCoordinate {
 
@@ -10,7 +12,7 @@ public class Two extends AbstractCoordinate {
         super(width);
     }
 
-    void load() {
+    public void load() {
         addCoordinates(new Three().getProperties());
         addCoordinates(3, createArray(0));
     }

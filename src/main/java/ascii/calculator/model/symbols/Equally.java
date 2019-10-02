@@ -1,4 +1,6 @@
-package ascii.calculator.model;
+package ascii.calculator.model.symbols;
+
+import ascii.calculator.model.AbstractCoordinate;
 
 public class Equally extends AbstractCoordinate {
 
@@ -10,7 +12,7 @@ public class Equally extends AbstractCoordinate {
         super(width);
     }
 
-    void load() {
+    public void load() {
         addCoordinates(1, createArrayFromTo(0, 3));
         addCoordinates(3, createArrayFromTo(0, 3));
     }

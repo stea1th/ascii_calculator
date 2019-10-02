@@ -2,6 +2,14 @@ package ascii.calculator.signs;
 
 import ascii.calculator.exception.CalculatorException;
 import ascii.calculator.model.*;
+import ascii.calculator.model.numbers.*;
+import ascii.calculator.model.operators.Divide;
+import ascii.calculator.model.operators.Minus;
+import ascii.calculator.model.operators.Multiply;
+import ascii.calculator.model.operators.Plus;
+import ascii.calculator.model.symbols.Empty;
+import ascii.calculator.model.symbols.Equally;
+import ascii.calculator.model.symbols.Point;
 
 import static ascii.calculator.enums.Operator.getOperator;
 

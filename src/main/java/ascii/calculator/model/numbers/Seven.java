@@ -1,4 +1,6 @@
-package ascii.calculator.model;
+package ascii.calculator.model.numbers;
+
+import ascii.calculator.model.AbstractCoordinate;
 
 public class Seven extends AbstractCoordinate {
 
@@ -10,7 +12,7 @@ public class Seven extends AbstractCoordinate {
     }
 
     @Override
-    void load() {
+    public void load() {
         addCoordinates(0, createArrayFromTo(0, 4));
         addCoordinates(1, createArray(4));
         addCoordinates(2, createArray(4));

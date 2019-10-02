@@ -1,4 +1,6 @@
-package ascii.calculator.model;
+package ascii.calculator.model.symbols;
+
+import ascii.calculator.model.AbstractCoordinate;
 
 public class Empty extends AbstractCoordinate {
 
@@ -11,7 +13,7 @@ public class Empty extends AbstractCoordinate {
     }
 
     @Override
-    void load() {
+    public void load() {
         // Do nothing because it's empty.
     }
 }

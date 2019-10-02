@@ -1,4 +1,6 @@
-package ascii.calculator.model;
+package ascii.calculator.model.operators;
+
+import ascii.calculator.model.AbstractCoordinate;
 
 public class Divide extends AbstractCoordinate {
 
@@ -10,7 +12,7 @@ public class Divide extends AbstractCoordinate {
     }
 
     @Override
-    void load() {
+    public void load() {
         addCoordinates(0, createArray(4));
         addCoordinates(1, createArray(3));
         addCoordinates(2, createArray(2));
