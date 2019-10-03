@@ -3,11 +3,10 @@ package ascii.calculator.helpers;
 import ascii.calculator.exception.CalculatorException;
 import ascii.calculator.signs.Sign;
 import ascii.calculator.signs.SignInterface;
+import ascii.calculator.signs.SignFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static ascii.calculator.signs.SignFactory.createSign;
 
 public class SignHelper {
 
@@ -29,7 +28,7 @@ public class SignHelper {
     }
 
     public static List<SignInterface> transformToList(String result) {
-        return result.codePoints().mapToObj(i -> createSign(String.valueOf((char) i)))
+        return result.codePoints().mapToObj(i -> SignFactory.createSign(String.valueOf((char) i)))
                 .collect(Collectors.toList());
     }
 }

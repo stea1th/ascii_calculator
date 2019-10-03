@@ -2,7 +2,6 @@ package ascii.calculator;
 
 import ascii.calculator.signs.Sign;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
