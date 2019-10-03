@@ -1,9 +1,6 @@
 package ascii.calculator.helpers;
 
-import ascii.calculator.Calculator;
-import ascii.calculator.exception.CalculatorException;
 import javafx.util.Pair;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
