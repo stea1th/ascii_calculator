@@ -1,5 +1,6 @@
 package ascii.calculator.jersey.service;
 
+import ascii.calculator.jersey.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.GET;
@@ -12,7 +13,8 @@ public class CalculatorService {
 
     @GET
     @Produces("application/json")
-    public String hello() {
-        return "Hello from spring";
+    public User hello() {
+        User user = new User("Peter", "Pavlov");
+        return user;
     }
 }
