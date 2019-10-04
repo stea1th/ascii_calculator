@@ -1,20 +1,20 @@
 package ascii.calculator.jersey.service;
 
-import ascii.calculator.jersey.model.User;
+import ascii.calculator.helpers.MathHelper;
+import ascii.calculator.helpers.StringHelper;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 
 @Service
 @Path("/")
 public class CalculatorService {
 
     @GET
+    @Path("result/{expression}")
     @Produces("application/json")
-    public User hello() {
-        User user = new User("Peter", "Pavlov");
-        return user;
+    public String computation(@PathParam("expression") String expr) {
+        return StringHelper.formatResult(expr, MathHelper.compute(StringHelper.cutStringToPairs(expr)));
+
     }
 }
