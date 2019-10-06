@@ -13,8 +13,11 @@ public class CalculatorService {
     @GET
     @Path("result/{expression}")
     @Produces("application/json")
-    public String computation(@PathParam("expression") String expr) {
-        return StringHelper.formatResult(expr, MathHelper.compute(StringHelper.cutStringToPairs(expr)));
+    public Result computation(@PathParam("expression") String expr) {
+//        return StringHelper.formatResult(expr, MathHelper.compute(StringHelper.cutStringToPairs(expr)));
+//        return MathHelper.compute(StringHelper.cutStringToPairs(expr));
+        return new Result(expr,
+                StringHelper.formatResult(MathHelper.compute(StringHelper.cutStringToPairs(expr))));
 
     }
 }

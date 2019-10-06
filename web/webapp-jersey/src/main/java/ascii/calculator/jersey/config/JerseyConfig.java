@@ -9,5 +9,6 @@ public class JerseyConfig extends ResourceConfig {
 
     public JerseyConfig() {
         register(CalculatorService.class);
+        register(CORSFilter.class);
     }
 }

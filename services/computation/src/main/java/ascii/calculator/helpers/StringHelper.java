@@ -41,4 +41,8 @@ public class StringHelper {
         DecimalFormat format = new DecimalFormat("0.##");
         return expression + " = " + format.format(computed.setScale(2, BigDecimal.ROUND_HALF_EVEN));
     }
+
+    public static String formatResult(BigDecimal computed) {
+        return formatResult("", computed);
+    }
 }
