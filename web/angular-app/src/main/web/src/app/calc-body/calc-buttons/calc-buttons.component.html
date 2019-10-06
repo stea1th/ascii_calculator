@@ -1,0 +1,72 @@
+<table id="calc-table">
+  <tr>
+    <td>
+      <button mat-stroked-button color class="action-button" (click)="show('CE')">CE</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="warn" class="action-button" (click)="clear()">C</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="primary" class="action-button" (click)="show('Del')">Del</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="accent" class="action-button" (click)="show('/')">/</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('7')">7</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('8')">8</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('9')">9</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="accent" class="action-button" (click)="show('*')">*</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('4')">4</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('5')">5</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('6')">6</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="accent" class="action-button" (click)="show('-')">-</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('1')">1</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('2')">2</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('3')">3</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="accent" class="action-button" (click)="show('+')">+</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button mat-stroked-button color="primary" class="action-button" (click)="show('-')">+/-</button>
+    </td>
+    <td>
+      <button mat-stroked-button class="number-button" (click)="show('0')">0</button>
+    </td>
+    <td>
+      <button mat-stroked-button color="primary" class="action-button" (click)="show('.')">,</button>
+    </td>
+    <td>
+      <button mat-raised-button color="accent" class="action-button" (click)="getResult()">=</button>
+    </td>
+  </tr>
+</table>
