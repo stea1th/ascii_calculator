@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CalcServiceService} from "../service/calc-service.service";
+import {CalcServiceService} from "./service/calc-service.service";
 
 @Component({
   selector: 'app-calc-body',
