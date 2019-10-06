@@ -1,0 +1,14 @@
+
+:root{
+  --font-main: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 400px;
+}
+
+body {
+  background-color: #e7e5e5;
+  font-family: var(--font-main) !important;
+}
+

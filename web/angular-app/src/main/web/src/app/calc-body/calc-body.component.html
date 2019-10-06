@@ -1,9 +1,12 @@
 <div class="row">
-  <div class="col-xs-12">
-    <app-calc-view></app-calc-view>
-    <h3>Hallo!!</h3>
-    <button (click)="testClick('8+4*3')">Test Button</button>
-    {{clickMessage}}
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ml-auto mr-auto">
+    <div class="card border-light mb-3">
+      <div class="card-body">
+        <app-calc-display></app-calc-display>
+        <hr>
+        <app-calc-buttons></app-calc-buttons>
+      </div>
+    </div>
   </div>
 </div>
 

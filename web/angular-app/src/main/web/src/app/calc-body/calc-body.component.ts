@@ -8,7 +8,7 @@ import {CalcServiceService} from "./service/calc-service.service";
 })
 export class CalcBodyComponent implements OnInit {
 
-  clickMessage='';
+  clickMessage= '0';
 
   constructor(private calcService: CalcServiceService) { }
 
@@ -16,6 +16,7 @@ export class CalcBodyComponent implements OnInit {
   }
 
   testClick(num: string) {
+
     this.calcService.getResult(num).subscribe(data => {
 
       this.clickMessage = '' + data.expression + data.result;
