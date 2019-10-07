@@ -8,7 +8,7 @@ export class DataServiceService {
 
   private messageSource = new BehaviorSubject('0');
   currentMessage = this.messageSource.asObservable();
-  temp: string;
+  message: string;
 
   constructor() {
   }
@@ -17,8 +17,8 @@ export class DataServiceService {
     if (this.messageSource.getValue() == '0') {
       this.messageSource.next(num);
     } else {
-      this.currentMessage.subscribe(data => this.temp = data);
-      this.messageSource.next(this.temp + num);
+      this.currentMessage.subscribe(data => this.message = data);
+      this.messageSource.next(this.message + num);
     }
   }
 
@@ -28,5 +28,10 @@ export class DataServiceService {
 
   setMessage(num: string){
     this.messageSource.next(num);
+  }
+
+  getMessage():string {
+    this.currentMessage.subscribe((data => this.message = data));
+    return this.message;
   }
 }

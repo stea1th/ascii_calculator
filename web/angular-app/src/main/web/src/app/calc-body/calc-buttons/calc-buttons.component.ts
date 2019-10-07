@@ -10,6 +10,9 @@ import {DataServiceService} from "../service/data-service.service";
 export class CalcButtonsComponent implements OnInit {
 
   temp: string;
+  result: string;
+  variable = '';
+  sentences = new Array<string>();
 
   constructor(private calcService: CalcServiceService, private dataService: DataServiceService) {
   }
@@ -17,18 +20,57 @@ export class CalcButtonsComponent implements OnInit {
   ngOnInit() {
   }
 
-  show(num: string) {
+  showNum(num: string) {
+    if (!this.variable.match("[-+*/]+")) {
+      this.variable += num;
+    } else {
+      this.addVariable(this.variable);
+      this.variable = num;
+    }
     this.dataService.updateMessage(num);
+  }
+
+  showAction(num: string) {
+    if(this.variable == '' && this.sentences.length != 0){
+      this.variable = this.sentences[this.sentences.length - 1];
+    }
+    if (!this.variable.match("[-+*/]+")) {
+      this.addVariable(this.variable);
+      this.dataService.updateMessage(num);
+    }
+    this.variable = num;
   }
 
   clear() {
     this.dataService.clearMessage();
+    this.sentences.length = 0;
   }
 
   getResult() {
-    this.dataService.currentMessage.subscribe(data=> this.temp = data);
+    this.temp = this.dataService.getMessage();
     this.calcService.getResult(this.temp).subscribe(data => {
-      this.dataService.setMessage(data.expression + data.result);
+      this.dataService.setMessage(data.result);
     });
+  }
+
+  addVariable(variable: string) {
+    if (variable != '') {
+      this.sentences.push(variable);
+    }
+  }
+
+  removeLastExpression() {
+    let expression;
+    if(this.variable != '') {
+      this.variable = '';
+    } else {
+      this.sentences.splice(this.sentences.length-1);
+    }
+    expression = this.sentences.join('');
+    if(expression == ''){
+      this.dataService.setMessage('0');
+    } else {
+      this.dataService.setMessage(expression);
+    }
   }
 }

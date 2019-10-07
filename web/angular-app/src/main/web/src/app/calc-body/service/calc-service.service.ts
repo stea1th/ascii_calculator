@@ -14,13 +14,17 @@ export class CalcServiceService {
     })
   };
 
-  constructor(private http: HttpClient) { }
-
-  public getResult(num: string): Observable<any> {
-    return this.http.get<any>(this.baseUrl + '/result/' + num).pipe();
+  constructor(private http: HttpClient) {
   }
 
+  public getResult(num: string): Observable<any> {
 
+    return this.http.post<any>(this.baseUrl + '/result', {
+      expression: num,
+      result: null
+      },
+      this.httpOptions).pipe();
+  }
 
 
 }

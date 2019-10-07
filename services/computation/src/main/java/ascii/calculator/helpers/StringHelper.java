@@ -21,6 +21,10 @@ public class StringHelper {
 
     public static List<Pair<String, BigDecimal>> cutStringToPairs(String expression) {
         List<Pair<String, BigDecimal>> result = new LinkedList<>();
+        expression = replaceComma(expression);
+        if (Character.toString(expression.charAt(0)).equals(".")) {
+            expression = "0" + expression;
+        }
         if (Character.isDigit(expression.charAt(0))) {
             expression = "+" + expression;
         }
@@ -39,10 +43,19 @@ public class StringHelper {
 
     public static String formatResult(String expression, BigDecimal computed) {
         DecimalFormat format = new DecimalFormat("0.##");
-        return expression + " = " + format.format(computed.setScale(2, BigDecimal.ROUND_HALF_EVEN));
+        return expression + " = " + onlyResult(computed);
+    }
+
+    public static String onlyResult(BigDecimal computed) {
+        DecimalFormat format = new DecimalFormat("0.##");
+        return format.format(computed.setScale(2, BigDecimal.ROUND_HALF_UP));
     }
 
     public static String formatResult(BigDecimal computed) {
         return formatResult("", computed);
+    }
+
+    private static String replaceComma(String expression) {
+        return expression.replace(",", ".");
     }
 }

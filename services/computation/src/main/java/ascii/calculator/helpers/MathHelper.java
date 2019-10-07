@@ -36,7 +36,7 @@ public class MathHelper {
                 expressions.add(index - 1,
                         new Pair<>(firstPair.getKey(), getOperator(secondPair.getKey()).equals(MULTIPLY) ?
                                 firstPair.getValue().multiply(secondPair.getValue()) :
-                                firstPair.getValue().divide(secondPair.getValue(), 2)));
+                                firstPair.getValue().divide(secondPair.getValue(), 4)));
             }
         }
         return expressions;
