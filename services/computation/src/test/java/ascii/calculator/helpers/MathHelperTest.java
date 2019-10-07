@@ -19,7 +19,7 @@ class MathHelperTest {
         expressions.add(new Pair<>("+", new BigDecimal(11.2)));
         expressions.add(new Pair<>("+", new BigDecimal(3.7)));
         expressions.add(new Pair<>("*", new BigDecimal(4)));
-        expressions.add(new Pair<>("-", new BigDecimal(12)));
+        expressions.add(new Pair<>("+", new BigDecimal(-12)));
         expressions.add(new Pair<>("/", new BigDecimal(3)));
         expressions.add(new Pair<>("/", new BigDecimal(2)));
         expressions.add(new Pair<>("-", new BigDecimal(0.5)));
@@ -35,7 +35,5 @@ class MathHelperTest {
         assertTrue(Modifier.isPrivate(constructor.getModifiers()));
         assertFalse(constructor.isAccessible());
         constructor.setAccessible(true);
-//        constructor.newInstance();
-//        assertThrows(CalculatorException.class, constructor.newInstance());
     }
 }

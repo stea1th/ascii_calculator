@@ -67,6 +67,12 @@ export class CalcButtonsComponent implements OnInit {
     }
   }
 
+  toggleMinus() {
+    if(this.sentences.length == 0){
+
+    }
+  }
+
   removeLastExpression() {
     let expression;
     if(this.variable != '') {
