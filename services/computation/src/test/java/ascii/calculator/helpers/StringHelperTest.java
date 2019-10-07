@@ -21,5 +21,7 @@ class StringHelperTest {
         assertEquals(4, pairs.size());
         assertEquals("+", pairs.get(3).getKey());
         assertEquals("-6.89", pairs.get(3).getValue().toString());
+        assertEquals("-", pairs.get(0).getKey());
+        assertEquals("3.0", pairs.get(0).getValue().toString());
     }
 }

@@ -70,17 +70,17 @@ export class CalcButtonsComponent implements OnInit {
 
   toggleMinus() {
     if (!this.variable.match("[-+*/]") && this.variable != '') {
-
+      this.sentences.splice(this.sentences.length);
       this.variable = "-" + this.variable;
-      this.dataService.setMessage(this.sentences.join('') + this.variable);
-    } else if (this.variable.length > 1 && this.variable.startsWith("-")) {
-      // this.sentences.splice(this.sentences.length - 1);
-      this.variable = this.variable.substr(1, this.variable.length);
-      this.dataService.setMessage(this.sentences.join('') + this.variable);
-    }
-    // this.sentences.splice(this.sentences.length);
-    this.addVariable(this.variable);
 
+    } else if (this.variable.length > 1 && this.variable.startsWith("-")) {
+      this.sentences.splice(this.sentences.length);
+      this.variable = this.variable.substr(1, this.variable.length);
+      // this.dataService.setMessage(this.sentences.join('') + this.variable);
+    }
+
+    this.addVariable(this.variable);
+    this.dataService.setMessage(this.sentences.join(''));
   }
 
   removeLastExpression() {

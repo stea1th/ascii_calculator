@@ -17,7 +17,8 @@ public class StringHelper {
     }
 
     private static final String OPERATOR = "[-+*/]";
-    private static final String BODY = "[-]*\\d+[.,]*\\d*";
+    private static final String BODY = "\\d+[.,]*\\d*";
+    private static final String BODY_WITH_MINUS = "-?\\d+[.,]*\\d*";
 
     public static List<Pair<String, BigDecimal>> cutStringToPairs(String expression) {
         List<Pair<String, BigDecimal>> result = new LinkedList<>();
@@ -28,7 +29,7 @@ public class StringHelper {
         if (Character.isDigit(expression.charAt(0))) {
             expression = "+" + expression;
         }
-        Pattern regex = Pattern.compile(OPERATOR + BODY);
+        Pattern regex = Pattern.compile(OPERATOR + BODY_WITH_MINUS);
         Matcher matcher = regex.matcher(expression.replace(" ", ""));
         while (matcher.find()) {
             result.add(createPair(matcher.group()));
@@ -37,12 +38,12 @@ public class StringHelper {
     }
 
     private static Pair<String, BigDecimal> createPair(String expression) {
-        return new Pair<>(expression.replaceFirst(BODY, ""),
+        String sign = expression.replaceFirst(expression.replaceFirst(BODY, "").length() > 1 ? BODY_WITH_MINUS : BODY, "");
+        return new Pair<>(sign,
                 BigDecimal.valueOf(Double.parseDouble(expression.replaceFirst(OPERATOR, ""))));
     }
 
     public static String formatResult(String expression, BigDecimal computed) {
-        DecimalFormat format = new DecimalFormat("0.##");
         return expression + " = " + onlyResult(computed);
     }
 
