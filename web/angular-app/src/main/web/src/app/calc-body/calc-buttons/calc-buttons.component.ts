@@ -41,6 +41,13 @@ export class CalcButtonsComponent implements OnInit {
     this.variable = num;
   }
 
+  showComma() {
+    if(!this.variable.includes(',')){
+      this.variable += ',';
+      this.dataService.updateMessage(',');
+    }
+  }
+
   clear() {
     this.dataService.clearMessage();
     this.sentences.length = 0;
@@ -50,6 +57,7 @@ export class CalcButtonsComponent implements OnInit {
     this.temp = this.dataService.getMessage();
     this.calcService.getResult(this.temp).subscribe(data => {
       this.dataService.setMessage(data.result);
+      this.sentences.length = 0;
     });
   }
 
