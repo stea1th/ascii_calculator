@@ -21,7 +21,7 @@ export class CalcButtonsComponent implements OnInit {
   }
 
   showNum(num: string) {
-    if (!this.variable.match("[-+*/]+")) {
+    if (!this.variable.match("[-+*/]")) {
       this.variable += num;
     } else {
       this.addVariable(this.variable);
@@ -31,10 +31,10 @@ export class CalcButtonsComponent implements OnInit {
   }
 
   showAction(num: string) {
-    if(this.variable == '' && this.sentences.length != 0){
+    if (this.variable == '' && this.sentences.length != 0) {
       this.variable = this.sentences[this.sentences.length - 1];
     }
-    if (!this.variable.match("[-+*/]+")) {
+    if (!this.variable.match("[-+*/]") || this.variable.length > 1) {
       this.addVariable(this.variable);
       this.dataService.updateMessage(num);
     }
@@ -42,7 +42,7 @@ export class CalcButtonsComponent implements OnInit {
   }
 
   showComma() {
-    if(!this.variable.includes(',')){
+    if (!this.variable.includes(',')) {
       this.variable += ',';
       this.dataService.updateMessage(',');
     }
@@ -51,6 +51,7 @@ export class CalcButtonsComponent implements OnInit {
   clear() {
     this.dataService.clearMessage();
     this.sentences.length = 0;
+    this.variable = '';
   }
 
   getResult() {
@@ -68,20 +69,29 @@ export class CalcButtonsComponent implements OnInit {
   }
 
   toggleMinus() {
-    if(this.sentences.length == 0){
+    if (!this.variable.match("[-+*/]") && this.variable != '') {
 
+      this.variable = "-" + this.variable;
+      this.dataService.setMessage(this.sentences.join('') + this.variable);
+    } else if (this.variable.length > 1 && this.variable.startsWith("-")) {
+      // this.sentences.splice(this.sentences.length - 1);
+      this.variable = this.variable.substr(1, this.variable.length);
+      this.dataService.setMessage(this.sentences.join('') + this.variable);
     }
+    // this.sentences.splice(this.sentences.length);
+    this.addVariable(this.variable);
+
   }
 
   removeLastExpression() {
     let expression;
-    if(this.variable != '') {
+    if (this.variable != '') {
       this.variable = '';
     } else {
-      this.sentences.splice(this.sentences.length-1);
+      this.sentences.splice(this.sentences.length - 1);
     }
     expression = this.sentences.join('');
-    if(expression == ''){
+    if (expression == '') {
       this.dataService.setMessage('0');
     } else {
       this.dataService.setMessage(expression);

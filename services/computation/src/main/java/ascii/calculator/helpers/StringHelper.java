@@ -17,7 +17,7 @@ public class StringHelper {
     }
 
     private static final String OPERATOR = "[-+*/]";
-    private static final String BODY = "\\d+[.,]*\\d*";
+    private static final String BODY = "[-]*\\d+[.,]*\\d*";
 
     public static List<Pair<String, BigDecimal>> cutStringToPairs(String expression) {
         List<Pair<String, BigDecimal>> result = new LinkedList<>();

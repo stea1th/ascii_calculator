@@ -64,7 +64,7 @@ public class MathHelper {
         for (int i = 0; i < expressions.size(); i++) {
             Pair<String, BigDecimal> pair = expressions.get(i);
             Operator operator = getOperator(pair.getKey());
-            if (operator.equals(MULTIPLY) || operator.equals(DIVIDE)) {
+            if (MULTIPLY.equals(operator) || DIVIDE.equals(operator)) {
                 return i;
             }
         }

@@ -1,13 +1,12 @@
-package ascii.calculator.console.helpers;
+package ascii.calculator.helpers;
 
-import ascii.calculator.helpers.StringHelper;
 import javafx.util.Pair;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringHelperTest {
 
@@ -16,11 +15,11 @@ class StringHelperTest {
         String one = "-3";
         String two = "+4";
         String three = "/12";
-        String four = "-6.89";
+        String four = "+-6.89";
         String testString = one + two + three + four;
         List<Pair<String, BigDecimal>> pairs = StringHelper.cutStringToPairs(testString);
         assertEquals(4, pairs.size());
-        assertEquals("-", pairs.get(3).getKey());
-        assertEquals("6.89", pairs.get(3).getValue().toString());
+        assertEquals("+", pairs.get(3).getKey());
+        assertEquals("-6.89", pairs.get(3).getValue().toString());
     }
 }
