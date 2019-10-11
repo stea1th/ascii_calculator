@@ -12,8 +12,7 @@ public abstract class AbstractCoordinate {
     private final Integer width;
 
     public AbstractCoordinate() {
-        this.width = 6;
-        load();
+        this(6);
     }
 
     public AbstractCoordinate(int width) {
