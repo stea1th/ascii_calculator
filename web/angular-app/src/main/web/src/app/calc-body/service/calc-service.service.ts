@@ -20,8 +20,7 @@ export class CalcServiceService {
   public getResult(num: string): Observable<any> {
 
     return this.http.post<any>(this.baseUrl + '/result', {
-      expression: num,
-      result: null
+      expression: num
       },
       this.httpOptions).pipe();
   }
