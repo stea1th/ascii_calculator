@@ -1,10 +1,8 @@
 package ascii.calculator.console.helpers;
 
-import ascii.calculator.console.signs.Sign;
 import ascii.calculator.console.signs.SignFactory;
 import ascii.calculator.console.signs.SignInterface;
 import ascii.calculator.exception.CalculatorException;
-
 
 import java.util.List;
 import java.util.stream.Collectors;
