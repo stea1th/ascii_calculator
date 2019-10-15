@@ -1,0 +1,12 @@
+<div id="button">
+  <button *ngIf="isAction;else defaultButton"mat-stroked-button [attr.color]="color" class="btn"
+          (click)="onClickButton($event)">
+    <ng-content></ng-content>
+  </button>
+  <ng-template #defaultButton>
+    <button  mat-raised-button [attr.color]="color" class="btn" (click)="onClickButton($event)">
+      <ng-content></ng-content>
+    </button>
+  </ng-template>
+</div>
+

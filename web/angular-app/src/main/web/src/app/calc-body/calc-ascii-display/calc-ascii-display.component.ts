@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CalcServiceService} from "../service/calc-service.service";
+import {DataServiceService} from "../service/data-service.service";
 
 @Component({
   selector: 'app-calc-ascii-display',
@@ -7,16 +8,15 @@ import {CalcServiceService} from "../service/calc-service.service";
   styleUrls: ['./calc-ascii-display.component.css']
 })
 export class CalcAsciiDisplayComponent implements OnInit {
-  // public items = ["xxxxx xxxxx x   x xxxxx xxxxx ","    x     x x   x x     x     ","xxxxx xxxxx xxxxx xxxxx xxxxx ","x         x     x     x x   x ","xxxxx xxxxx     x xxxxx xxxxx "];
-  public items = [];
+   items = [];
+  @Input('expression') expression: string;
 
-  constructor(private calcService: CalcServiceService) {
+  constructor(private calcService: CalcServiceService, private dataService: DataServiceService) {
   }
 
   ngOnInit() {
-    this.items.forEach(i=> i.replace(' ', '&#8199;'));
-    this.calcService.getAscii("0").subscribe(data => this.items = data);
-
-    }
+    this.dataService.currentMessage.subscribe(data => this.expression = data);
+    this.calcService.getAscii(this.expression).subscribe(data => this.items = data);
+  }
 
 }

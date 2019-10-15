@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {CalcServiceService} from "./service/calc-service.service";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-calc-body',
@@ -8,19 +7,8 @@ import {CalcServiceService} from "./service/calc-service.service";
 })
 export class CalcBodyComponent implements OnInit {
 
-  clickMessage= '0';
-
-  constructor(private calcService: CalcServiceService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  testClick(num: string) {
-
-    this.calcService.postResult(num).subscribe(data => {
-
-      this.clickMessage = '' + data.expression + data.result;
-    });
-  }
-
 }

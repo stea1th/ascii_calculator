@@ -1,30 +1,32 @@
 <table id="calc-table">
   <tr>
     <td>
-      <button mat-stroked-button color class="action-button" (click)="removeLastExpression()">CE</button>
+<!--      <button mat-stroked-button color class="action-button" (click)="removeLastExpression()">CE</button>-->
     </td>
     <td>
-      <button mat-stroked-button color="warn" class="action-button" (click)="clear()">C</button>
+<!--      <button mat-stroked-button color="warn" class="action-button" (click)="clear()">C</button>-->
     </td>
     <td>
       <button mat-stroked-button color="primary" class="action-button" (click)="showNum('Del')"><i class="fas fa-backspace"></i></button>
     </td>
     <td>
-      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('/')"><i class="fas fa-divide"></i></button>
+<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('/')"><i class="fas fa-divide"></i></button>-->
     </td>
   </tr>
   <tr>
     <td>
-      <button mat-stroked-button class="number-button" (click)="showNum('7')">7</button>
+<!--      <button mat-stroked-button class="number-button" (click)="showNum('7')">7</button>-->
+      <app-button (onClick)="showNum('7')" color='' >7</app-button>
     </td>
     <td>
-      <button mat-stroked-button class="number-button" (click)="showNum('8')">8</button>
+<!--      <button mat-stroked-button class="number-button" (click)="showNum('8')">8</button>-->
+      <app-button (onClick)="showNum('8')" >8</app-button>
     </td>
     <td>
       <button mat-stroked-button class="number-button" (click)="showNum('9')">9</button>
     </td>
     <td>
-      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('*')"><i class="fas fa-times"></i></button>
+<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('*')"><i class="fas fa-times"></i></button>-->
     </td>
   </tr>
   <tr>
@@ -38,7 +40,7 @@
       <button mat-stroked-button class="number-button" (click)="showNum('6')">6</button>
     </td>
     <td>
-      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('-')"><i class="fas fa-minus"></i></button>
+<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('-')"><i class="fas fa-minus"></i></button>-->
     </td>
   </tr>
   <tr>
@@ -52,21 +54,21 @@
       <button mat-stroked-button class="number-button" (click)="showNum('3')">3</button>
     </td>
     <td>
-      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('+')"><i class="fas fa-plus"></i></button>
+<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('+')"><i class="fas fa-plus"></i></button>-->
     </td>
   </tr>
   <tr>
     <td>
-      <button mat-stroked-button color="primary" class="action-button" (click)="toggleMinus()">+/-</button>
+<!--      <button mat-stroked-button color="primary" class="action-button" (click)="toggleMinus()">+/-</button>-->
     </td>
     <td>
       <button mat-stroked-button class="number-button" (click)="showNum('0')">0</button>
     </td>
     <td>
-      <button mat-stroked-button color="primary" class="action-button" (click)="showComma()">,</button>
+<!--      <button mat-stroked-button color="primary" class="action-button" (click)="showComma()">,</button>-->
     </td>
     <td>
-      <button mat-raised-button color="accent" class="action-button" (click)="getResult()"><i class="fas fa-equals"></i></button>
+<!--      <button mat-raised-button color="accent" class="action-button" (click)="getResult()"><i class="fas fa-equals"></i></button>-->
     </td>
   </tr>
 </table>

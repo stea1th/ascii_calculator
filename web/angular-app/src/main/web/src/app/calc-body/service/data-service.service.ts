@@ -29,8 +29,6 @@ export class DataServiceService {
   }
 
   setMessage(num: string) {
-    console.log(num);
-    console.log(this.message);
     if (this.message.length < 23) {
       this.messageSource.next(num);
     }

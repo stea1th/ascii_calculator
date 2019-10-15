@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DataServiceService} from "../service/data-service.service";
 
 @Component({
   selector: 'app-calc-ascii-buttons',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalcAsciiButtonsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
+  }
+
+  showNum(num: string): string {
+    return num;
   }
 
 }
