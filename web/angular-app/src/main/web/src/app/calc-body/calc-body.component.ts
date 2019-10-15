@@ -17,7 +17,7 @@ export class CalcBodyComponent implements OnInit {
 
   testClick(num: string) {
 
-    this.calcService.getResult(num).subscribe(data => {
+    this.calcService.postResult(num).subscribe(data => {
 
       this.clickMessage = '' + data.expression + data.result;
     });

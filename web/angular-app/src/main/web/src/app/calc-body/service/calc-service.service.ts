@@ -17,13 +17,17 @@ export class CalcServiceService {
   constructor(private http: HttpClient) {
   }
 
-  public getResult(num: string): Observable<any> {
-
+  public postResult(num: string): Observable<any> {
     return this.http.post<any>(this.baseUrl + '/result', {
       expression: num
       },
       this.httpOptions).pipe();
   }
 
-
+  public postAscii(num: string): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/ascii', {
+        expression: num
+      },
+      this.httpOptions).pipe();
+  }
 }

@@ -8,13 +8,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatSliderModule} from "@angular/material";
 import {CalcDisplayComponent} from './calc-body/calc-display/calc-display.component';
 import { CalcButtonsComponent } from './calc-body/calc-buttons/calc-buttons.component';
+import { CalcAsciiDisplayComponent } from './calc-body/calc-ascii-display/calc-ascii-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalcBodyComponent,
     CalcDisplayComponent,
-    CalcButtonsComponent
+    CalcButtonsComponent,
+    CalcAsciiDisplayComponent
   ],
   imports: [
     BrowserModule,
