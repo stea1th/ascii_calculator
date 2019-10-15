@@ -11,8 +11,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ascii.calculator.console.helpers.SignHelper.printResult;
-import static ascii.calculator.console.helpers.SignHelper.transformToList;
+import static ascii.calculator.console.helpers.SignHelper.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SignHelperTest {
@@ -46,6 +45,11 @@ class SignHelperTest {
         List<SignInterface> signInterfaces = transformToList(test);
         assertEquals(1, signInterfaces.size());
         assertArrayEquals(sign.getMatrix(), signInterfaces.get(0).getMatrix());
+    }
 
+    @Test
+    void transformListToArrayTest() {
+        String[] arr = transformListToArray(list);
+        assertEquals("xxxxx xxxxx ", arr[2]);
     }
 }

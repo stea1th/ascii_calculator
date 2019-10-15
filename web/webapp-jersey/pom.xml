@@ -86,10 +86,15 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>de.stea1th</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>computation</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>console</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>

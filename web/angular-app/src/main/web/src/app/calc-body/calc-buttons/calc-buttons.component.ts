@@ -56,7 +56,7 @@ export class CalcButtonsComponent implements OnInit {
 
   getResult() {
     this.temp = this.dataService.getMessage();
-    this.calcService.getResult(this.temp).subscribe(data => {
+    this.calcService.postResult(this.temp).subscribe(data => {
       this.dataService.setMessage(data.result);
       this.sentences.length = 0;
     });

@@ -4,6 +4,7 @@ import ascii.calculator.console.signs.SignFactory;
 import ascii.calculator.console.signs.SignInterface;
 import ascii.calculator.exception.CalculatorException;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,19 +18,37 @@ public class SignHelper {
 
     public static void printResult(List<SignInterface> result) {
         for (int i = 0; i < HEIGHT; i++) {
-            int finalI = i;
-            result.forEach(o -> {
+            for (SignInterface o : result) {
                 String[][] matrix = o.getMatrix();
-                for (int j = 0; j < matrix[finalI].length; j++) {
-                    System.out.print(matrix[finalI][j]);
-                }
-            });
+                Arrays.stream(matrix[i]).forEach(System.out::print);
+            }
             System.out.println();
         }
+    }
+
+    public static void printResult(String[] arr) {
+        Arrays.stream(arr).forEach(System.out::println);
     }
 
     public static List<SignInterface> transformToList(String result) {
         return result.codePoints().mapToObj(i -> SignFactory.createSign(String.valueOf((char) i)))
                 .collect(Collectors.toList());
+    }
+
+    public static String[] transformStringToArray(String result) {
+        return transformListToArray(transformToList(result));
+    }
+
+    public static String[] transformListToArray(List<SignInterface> list) {
+        String[] arr = new String[HEIGHT];
+        for (int i = 0; i < HEIGHT ; i++) {
+            StringBuilder res = new StringBuilder();
+            for(SignInterface signInterface : list) {
+                String[][] matrix = signInterface.getMatrix();
+                res.append(String.join("", matrix[i]));
+            }
+            arr[i] = res.toString();
+        }
+        return arr;
     }
 }

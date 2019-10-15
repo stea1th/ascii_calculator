@@ -17,6 +17,6 @@ public class Calculator {
     private static void compute(String argument){
         BigDecimal computed = MathHelper.compute(StringHelper.cutStringToPairs(argument));
         String result = StringHelper.formatResult(argument, computed);
-        SignHelper.printResult(SignHelper.transformToList(result));
+        SignHelper.printResult(SignHelper.transformListToArray(SignHelper.transformToList(result)));
     }
 }
