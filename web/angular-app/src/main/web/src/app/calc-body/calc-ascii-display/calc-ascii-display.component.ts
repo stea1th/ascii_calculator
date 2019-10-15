@@ -7,15 +7,15 @@ import {CalcServiceService} from "../service/calc-service.service";
   styleUrls: ['./calc-ascii-display.component.css']
 })
 export class CalcAsciiDisplayComponent implements OnInit {
-  public items = ["xxxxx xxxxx x   x xxxxx xxxxx ","    x     x x   x x     x     ","xxxxx xxxxx xxxxx xxxxx xxxxx ","x         x     x     x x   x ","xxxxx xxxxx     x xxxxx xxxxx "];
+  // public items = ["xxxxx xxxxx x   x xxxxx xxxxx ","    x     x x   x x     x     ","xxxxx xxxxx xxxxx xxxxx xxxxx ","x         x     x     x x   x ","xxxxx xxxxx     x xxxxx xxxxx "];
+  public items = [];
 
   constructor(private calcService: CalcServiceService) {
   }
 
   ngOnInit() {
     this.items.forEach(i=> i.replace(' ', '&#8199;'));
-
-    // this.calcService.getAscii("0").subscribe(data => this.items = data);
+    this.calcService.getAscii("0").subscribe(data => this.items = data);
 
     }
 
