@@ -1,0 +1,13 @@
+
+#calc-table {
+  width: 100%;
+}
+
+td {
+  align-content: center;
+  width: 25%;
+}
+
+button, app-button {
+  width: 100%;
+}

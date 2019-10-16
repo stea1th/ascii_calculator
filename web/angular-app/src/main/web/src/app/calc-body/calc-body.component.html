@@ -2,10 +2,11 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ml-auto mr-auto">
     <div class="card border-light mb-3">
       <div class="card-body">
-<!--        <app-calc-display></app-calc-display>-->
+
         <app-calc-ascii-display [display-items]="items"></app-calc-ascii-display>
         <hr>
-<!--        <app-calc-buttons></app-calc-buttons>-->
+        <app-calc-display [display-items]="items"></app-calc-display>
+        <!--        <app-calc-buttons></app-calc-buttons>-->
         <app-calc-ascii-buttons (itemsEvent)="receiveItems($event)"></app-calc-ascii-buttons>
       </div>
     </div>

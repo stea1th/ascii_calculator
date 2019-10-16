@@ -52,7 +52,11 @@ public class StringHelper {
         return format.format(computed.setScale(2, BigDecimal.ROUND_HALF_UP));
     }
 
-    public static String formatResult(BigDecimal computed) {
+    public static String onlyResult(String expression) {
+        return onlyResult(MathHelper.compute(cutStringToPairs(expression)));
+    }
+
+    static String formatResult(BigDecimal computed) {
         return formatResult("", computed);
     }
 

@@ -1,6 +1,7 @@
 package ascii.calculator.jersey.service;
 
 import ascii.calculator.console.helpers.SignHelper;
+import ascii.calculator.helpers.StringHelper;
 import javafx.util.Pair;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +14,20 @@ public class CalculatorService {
 
     private Deque<Pair<String, String>> DEQUE;
     private static String LASTKEY, LASTVALUE, PAIRKEY, PAIRVALUE;
+    private final static int DISPLAY_LENGTH = 14;
     private final static String ZERO = "0";
     private final static String NUMBER = "Number";
     private final static String ACTION = "Action";
     private final static String COMMA = ",";
-    private final static String MINUS = "M";
+    private final static String PLUS_MINUS = "M";
+    private final static String MINUS = "-";
     private final static String DELETE_ALL = "C";
     private final static String DELETE_LAST = "CE";
     private final static String DELETE_LAST_SIGN = "D";
+    private final static String ACTIONS = "[-+*/P]";
+    private final static String PLUS_SIGN = "P";
+    private final static String PLUS = "+";
+    private final static String RESULT = "R";
 
 
     public CalculatorService() {
@@ -40,14 +47,16 @@ public class CalculatorService {
         PAIRVALUE = pair.getValue();
     }
 
-    public String[] getNumbers(String num) {
-        Pair<String, String> pair = createPair(NUMBER, num);
+    public String[] getMatrix(String num) {
+        String res = createStringFromDeque();
         switch (num) {
             case COMMA:
-                editComma(pair);
+                if (res.length() < DISPLAY_LENGTH)
+                    editComma(createPair(NUMBER, num));
                 break;
-            case MINUS:
-                editNegation(pair);
+            case PLUS_MINUS:
+                if (res.length() < DISPLAY_LENGTH)
+                    editNegation(createPair(NUMBER, MINUS));
                 break;
             case DELETE_ALL:
                 deleteAll();
@@ -58,16 +67,24 @@ public class CalculatorService {
             case DELETE_LAST_SIGN:
                 deleteLastSign();
                 break;
+            case RESULT:
+                getResult();
+                break;
             default:
-                formString(pair);
+                if (res.length() < DISPLAY_LENGTH)
+                    formString(createPair(ACTIONS.contains(num) ? ACTION : NUMBER, num.equals(PLUS_SIGN) ? PLUS : num));
                 break;
         }
         return createMatrix();
     }
 
-    public String[] getAction(String num) {
-        formString(createPair(ACTION, num));
-        return createMatrix();
+
+
+    private void getResult() {
+        String result = createStringFromDeque();
+        result = StringHelper.onlyResult(result);
+        deleteAll();
+        removeAndAddLastPair(createPair(NUMBER, result));
     }
 
     private void formString(Pair<String, String> pair) {
@@ -101,7 +118,7 @@ public class CalculatorService {
         if (LASTVALUE.length() == 0) {
             deleteLast();
         } else {
-            removeAndAddLastPair(createPair(LASTKEY, LASTVALUE.endsWith(COMMA)? removeLastChar(LASTVALUE) : LASTVALUE));
+            removeAndAddLastPair(createPair(LASTKEY, LASTVALUE.endsWith(COMMA) ? removeLastChar(LASTVALUE) : LASTVALUE));
         }
     }
 

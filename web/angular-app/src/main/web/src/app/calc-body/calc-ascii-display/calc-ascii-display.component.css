@@ -2,3 +2,12 @@ pre {
   margin: 0;
   font-size: 40%;
 }
+
+#ascii-display {
+  text-align:right;
+  height: 100%;
+}
+/*#display-items {*/
+/*  float:right;*/
+/*  width:100%;*/
+/*}*/

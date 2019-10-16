@@ -12,7 +12,7 @@
     </td>
     <td>
 <!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('/')"><i class="fas fa-divide"></i></button>-->
-      <app-button (onClick)="showAction('/')" ><i class="fas fa-divide"></i></app-button>
+      <app-button (onClick)="showNum('/')" ><i class="fas fa-divide"></i></app-button>
     </td>
   </tr>
   <tr>
@@ -28,7 +28,7 @@
       <button mat-stroked-button class="number-button" (click)="showNum('9')">9</button>
     </td>
     <td>
-<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('*')"><i class="fas fa-times"></i></button>-->
+      <button mat-stroked-button color="accent" class="action-button" (click)="showNum('*')"><i class="fas fa-times"></i></button>
     </td>
   </tr>
   <tr>
@@ -42,7 +42,7 @@
       <button mat-stroked-button class="number-button" (click)="showNum('6')">6</button>
     </td>
     <td>
-<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('-')"><i class="fas fa-minus"></i></button>-->
+      <button mat-stroked-button color="accent" class="action-button" (click)="showNum('-')"><i class="fas fa-minus"></i></button>
     </td>
   </tr>
   <tr>
@@ -56,7 +56,7 @@
       <button mat-stroked-button class="number-button" (click)="showNum('3')">3</button>
     </td>
     <td>
-<!--      <button mat-stroked-button color="accent" class="action-button" (click)="showAction('+')"><i class="fas fa-plus"></i></button>-->
+      <button mat-stroked-button color="accent" class="action-button" (click)="showNum('P')"><i class="fas fa-plus"></i></button>
     </td>
   </tr>
   <tr>
@@ -71,7 +71,7 @@
       <button mat-stroked-button color="primary" class="action-button" (click)="showNum(',')">,</button>
     </td>
     <td>
-<!--      <button mat-raised-button color="accent" class="action-button" (click)="getResult()"><i class="fas fa-equals"></i></button>-->
+      <button mat-raised-button color="accent" class="action-button" (click)="showNum('R')"><i class="fas fa-equals"></i></button>
     </td>
   </tr>
 </table>

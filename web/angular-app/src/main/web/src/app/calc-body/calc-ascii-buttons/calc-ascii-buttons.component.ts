@@ -26,13 +26,6 @@ export class CalcAsciiButtonsComponent implements OnInit {
     });
   }
 
-  showAction(num: string) {
-    this.calcService.getAction(num).subscribe(data => {
-      this.items = data;
-      this.sendItems();
-    });
-  }
-
   sendItems() {
     this.itemsEvent.emit(this.items);
   }

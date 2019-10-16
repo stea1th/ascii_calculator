@@ -1,6 +1,5 @@
 package ascii.calculator.jersey.controller;
 
-import ascii.calculator.helpers.MathHelper;
 import ascii.calculator.helpers.StringHelper;
 import ascii.calculator.jersey.model.Result;
 import ascii.calculator.jersey.service.CalculatorService;
@@ -21,7 +20,7 @@ public class CalculatorController {
     @Consumes("application/json")
     @Produces("application/json")
     public Result computation(Result result) {
-        result.setResult(StringHelper.onlyResult(MathHelper.compute(StringHelper.cutStringToPairs(result.getExpression()))));
+        result.setResult(StringHelper.onlyResult(result.getExpression()));
         return result;
     }
 
@@ -29,15 +28,7 @@ public class CalculatorController {
     @Path("ascii/number")
     @Produces("application/json")
     public String[] getAsciiNumber(@QueryParam("num") String num) {
-        return service.getNumbers(num);
+        return service.getMatrix(num);
     }
-
-    @GET
-    @Path("ascii/action")
-    @Produces("application/json")
-    public String[] getAction(@QueryParam("num") String num) {
-        return service.getAction(num);
-    }
-
 
 }
