@@ -16,20 +16,13 @@ export class CalcAsciiButtonsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clear();
+    this.showNum('C');
   }
 
   showNum(num: string) {
     this.calcService.getAsciiNumber(num).subscribe(data => {
       this.items = data;
       this.sendItems();
-    });
-  }
-
-  clear() {
-    this.calcService.clear().subscribe(data => {
-        this.items = data;
-        this.sendItems();
     });
   }
 

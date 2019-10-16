@@ -29,8 +29,8 @@ export class CalcServiceService {
     return this.http.get<any>(this.baseUrl + '/ascii/number?num=' + num).pipe();
   }
 
-  public clear(): Observable<any> {
-    return this.http.get<any>(this.baseUrl + '/ascii/clear').pipe();
+  public clear(num: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/ascii/clear?num=' + num ).pipe();
   }
 
   public getAction(num: string): Observable<any> {
