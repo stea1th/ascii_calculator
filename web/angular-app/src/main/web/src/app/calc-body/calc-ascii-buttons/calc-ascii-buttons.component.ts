@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {DataServiceService} from "../service/data-service.service";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {CalcServiceService} from "../service/calc-service.service";
 
 @Component({
   selector: 'app-calc-ascii-buttons',
@@ -7,14 +7,25 @@ import {DataServiceService} from "../service/data-service.service";
   styleUrls: ['./calc-ascii-buttons.component.css']
 })
 export class CalcAsciiButtonsComponent implements OnInit {
+  items: [];
 
-  constructor(private dataService: DataServiceService) { }
+  @Output() itemsEvent = new EventEmitter<[]>();
+
+  constructor(private calcService: CalcServiceService) {
+  }
 
   ngOnInit() {
   }
 
-  showNum(num: string): string {
-    return num;
+  showNum(num: string) {
+    this.calcService.getAscii(num).subscribe(data => {
+      this.items = data;
+      this.sendItems();
+    });
+  }
+
+  sendItems() {
+    this.itemsEvent.emit(this.items);
   }
 
 }

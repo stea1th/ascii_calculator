@@ -3,10 +3,10 @@
     <div class="card border-light mb-3">
       <div class="card-body">
 <!--        <app-calc-display></app-calc-display>-->
-        <app-calc-ascii-display></app-calc-ascii-display>
+        <app-calc-ascii-display [display-items]="items"></app-calc-ascii-display>
         <hr>
 <!--        <app-calc-buttons></app-calc-buttons>-->
-        <app-calc-ascii-buttons></app-calc-ascii-buttons>
+        <app-calc-ascii-buttons (itemsEvent)="receiveItems($event)"></app-calc-ascii-buttons>
       </div>
     </div>
   </div>

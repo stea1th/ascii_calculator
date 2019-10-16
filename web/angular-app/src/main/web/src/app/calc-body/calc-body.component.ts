@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {CalcAsciiButtonsComponent} from "./calc-ascii-buttons/calc-ascii-buttons.component";
 
 @Component({
   selector: 'app-calc-body',
@@ -7,8 +8,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CalcBodyComponent implements OnInit {
 
+  items: [];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  receiveItems($event) {
+    this.items = $event;
   }
 }
