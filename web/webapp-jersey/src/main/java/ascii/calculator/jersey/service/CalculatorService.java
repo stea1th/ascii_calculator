@@ -11,85 +11,129 @@ import java.util.stream.Collectors;
 @Service
 public class CalculatorService {
 
-    private Deque<Pair<String, String>> deque;
+    private Deque<Pair<String, String>> DEQUE;
     private static String LASTKEY, LASTVALUE, PAIRKEY, PAIRVALUE;
-    public final static String ZERO = "0";
-    public final static String NUMBER = "Number";
-    public final static String ACTION = "Action";
-    public final static String COMMA = ",";
-    public final static String MINUS = "-";
-    public final static String DELETE_ALL = "C";
-    public final static String DELETE_LAST = "CE";
+    private final static String ZERO = "0";
+    private final static String NUMBER = "Number";
+    private final static String ACTION = "Action";
+    private final static String COMMA = ",";
+    private final static String MINUS = "M";
+    private final static String DELETE_ALL = "C";
+    private final static String DELETE_LAST = "CE";
+    private final static String DELETE_LAST_SIGN = "D";
+
 
     public CalculatorService() {
-        deque = new LinkedList<>();
-        deque.addLast(new Pair<>(NUMBER, ZERO));
+        DEQUE = new LinkedList<>();
+        DEQUE.addLast(createPair(NUMBER, ZERO));
+    }
+
+    private void init() {
+        Pair<String, String> last = DEQUE.getLast();
+        LASTKEY = last.getKey();
+        LASTVALUE = last.getValue();
     }
 
     private void init(Pair<String, String> pair) {
-        Pair<String, String> last = deque.getLast();
-        LASTKEY = last.getKey();
-        LASTVALUE = last.getValue();
+        init();
         PAIRKEY = pair.getKey();
         PAIRVALUE = pair.getValue();
     }
 
-    public String[] formString(Pair<String, String> pair) {
+    public String[] getNumbers(String num) {
+        Pair<String, String> pair = createPair(NUMBER, num);
+        switch (num) {
+            case COMMA:
+                editComma(pair);
+                break;
+            case MINUS:
+                editNegation(pair);
+                break;
+            case DELETE_ALL:
+                deleteAll();
+                break;
+            case DELETE_LAST:
+                deleteLast();
+                break;
+            case DELETE_LAST_SIGN:
+                deleteLastSign();
+                break;
+            default:
+                formString(pair);
+                break;
+        }
+        return createMatrix();
+    }
+
+    public String[] getAction(String num) {
+        formString(createPair(ACTION, num));
+        return createMatrix();
+    }
+
+    private void formString(Pair<String, String> pair) {
         init(pair);
         if (LASTKEY.equals(PAIRKEY) && PAIRKEY.equals(NUMBER)) {
-            removeAndAddLastPair(new Pair<>(LASTKEY, !LASTVALUE.equals(ZERO) ?
+            removeAndAddLastPair(createPair(LASTKEY, !LASTVALUE.equals(ZERO) ?
                     LASTVALUE + PAIRVALUE : PAIRVALUE));
         } else if (!LASTKEY.equals(PAIRKEY)) {
             if (LASTVALUE.endsWith(COMMA)) {
-                removeAndAddLastPair(new Pair<>(LASTKEY, LASTVALUE.substring(0, LASTVALUE.length() - 1)));
+                removeAndAddLastPair(createPair(LASTKEY, removeLastChar(LASTVALUE)));
             }
-            deque.addLast(pair);
+            DEQUE.addLast(pair);
         }
-        return createMatrix();
     }
 
-    public String[] deleteAll() {
-        deque.clear();
-        deque.addLast(new Pair<>(NUMBER, ZERO));
-        return createMatrix();
+    private void deleteAll() {
+        DEQUE.clear();
+        DEQUE.addLast(createPair(NUMBER, ZERO));
     }
 
-    public String[] deleteLast() {
-        deque.pollLast();
-        return createMatrix();
+    private void deleteLast() {
+        DEQUE.pollLast();
+        if (DEQUE.size() == 0) {
+            DEQUE.addLast(createPair(NUMBER, ZERO));
+        }
     }
 
-    public String[] editComma(Pair<String, String> pair) {
+    private void deleteLastSign() {
+        init();
+        LASTVALUE = removeLastChar(LASTVALUE);
+        if (LASTVALUE.length() == 0) {
+            deleteLast();
+        } else {
+            removeAndAddLastPair(createPair(LASTKEY, LASTVALUE.endsWith(COMMA)? removeLastChar(LASTVALUE) : LASTVALUE));
+        }
+    }
+
+    private void editComma(Pair<String, String> pair) {
         init(pair);
         if (LASTKEY.equals(PAIRKEY)) {
             if (!LASTVALUE.contains(COMMA)) {
-                if (LASTVALUE.startsWith(MINUS) && deque.size() == 1) {
-                    removeAndAddLastPair(new Pair<>(LASTKEY, LASTVALUE + ZERO + PAIRVALUE));
+                if (LASTVALUE.startsWith(MINUS) && DEQUE.size() == 1) {
+                    removeAndAddLastPair(createPair(LASTKEY, LASTVALUE + ZERO + PAIRVALUE));
                 } else {
-                    removeAndAddLastPair(new Pair<>(LASTKEY, LASTVALUE + PAIRVALUE));
+                    removeAndAddLastPair(createPair(LASTKEY, LASTVALUE + PAIRVALUE));
                 }
             }
         } else {
-            deque.addLast(new Pair<>(PAIRKEY, ZERO + PAIRVALUE));
+            DEQUE.addLast(createPair(PAIRKEY, ZERO + PAIRVALUE));
         }
-        return createMatrix();
     }
 
-    public String[] editNegation(Pair<String, String> pair) {
+    private void editNegation(Pair<String, String> pair) {
         init(pair);
         if (LASTKEY.equals(PAIRKEY)) {
-            removeAndAddLastPair(new Pair<>(LASTKEY,
+            removeAndAddLastPair(createPair(LASTKEY,
                     LASTVALUE.startsWith(MINUS) ? LASTVALUE.substring(1) :
                             LASTVALUE.equals(ZERO) ? PAIRVALUE + LASTVALUE.substring(1) :
                                     PAIRVALUE + LASTVALUE));
         } else {
-            deque.addLast(pair);
+            DEQUE.addLast(pair);
         }
-        return createMatrix();
     }
 
     private String createStringFromDeque() {
-        return deque.stream().map(Pair::getValue)
+        return DEQUE.stream().map(Pair::getValue)
                 .collect(Collectors.joining());
     }
 
@@ -97,9 +141,17 @@ public class CalculatorService {
         return SignHelper.transformStringToArray(createStringFromDeque());
     }
 
+    private static Pair<String, String> createPair(String key, String value) {
+        return new Pair<>(key, value);
+    }
+
     private void removeAndAddLastPair(Pair<String, String> pair) {
-        deque.removeLast();
-        deque.addLast(pair);
+        DEQUE.removeLast();
+        DEQUE.addLast(pair);
+    }
+
+    private String removeLastChar(String str) {
+        return str.substring(0, str.length() - 1);
     }
 
 

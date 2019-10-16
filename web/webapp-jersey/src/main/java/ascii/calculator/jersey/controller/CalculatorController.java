@@ -4,13 +4,10 @@ import ascii.calculator.helpers.MathHelper;
 import ascii.calculator.helpers.StringHelper;
 import ascii.calculator.jersey.model.Result;
 import ascii.calculator.jersey.service.CalculatorService;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
-
-import static ascii.calculator.jersey.service.CalculatorService.*;
 
 @Path("/")
 @Component
@@ -32,26 +29,14 @@ public class CalculatorController {
     @Path("ascii/number")
     @Produces("application/json")
     public String[] getAsciiNumber(@QueryParam("num") String num) {
-        Pair<String, String> pair = new Pair<>(NUMBER, num);
-        switch (num) {
-            case COMMA:
-                return service.editComma(pair);
-            case MINUS:
-                return service.editNegation(pair);
-            case DELETE_ALL:
-                return service.deleteAll();
-            case DELETE_LAST:
-                return service.deleteLast();
-            default:
-                return service.formString(pair);
-        }
+        return service.getNumbers(num);
     }
 
     @GET
     @Path("ascii/action")
     @Produces("application/json")
     public String[] getAction(@QueryParam("num") String num) {
-        return service.formString(new Pair<>(ACTION, num));
+        return service.getAction(num);
     }
 
 
