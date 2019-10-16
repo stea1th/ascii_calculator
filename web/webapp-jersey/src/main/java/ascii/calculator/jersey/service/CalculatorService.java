@@ -2,6 +2,7 @@ package ascii.calculator.jersey.service;
 
 import ascii.calculator.console.helpers.SignHelper;
 import ascii.calculator.helpers.StringHelper;
+import ascii.calculator.jersey.model.CalculatorResult;
 import javafx.util.Pair;
 import org.springframework.stereotype.Service;
 
@@ -47,7 +48,16 @@ public class CalculatorService {
         PAIRVALUE = pair.getValue();
     }
 
-    public String[] getMatrix(String num) {
+    public CalculatorResult createResult(String num) {
+        fillDeque(num);
+        CalculatorResult calculatorResult = new CalculatorResult();
+        String res = createStringFromDeque();
+        calculatorResult.setResult(res);
+        calculatorResult.setMatrix(createMatrix(res));
+        return calculatorResult;
+    }
+
+    private void fillDeque(String num) {
         String res = createStringFromDeque();
         switch (num) {
             case COMMA:
@@ -68,19 +78,16 @@ public class CalculatorService {
                 deleteLastSign();
                 break;
             case RESULT:
-                getResult();
+                computeResult();
                 break;
             default:
                 if (res.length() < DISPLAY_LENGTH)
                     formString(createPair(ACTIONS.contains(num) ? ACTION : NUMBER, num.equals(PLUS_SIGN) ? PLUS : num));
                 break;
         }
-        return createMatrix();
     }
 
-
-
-    private void getResult() {
+    private void computeResult() {
         String result = createStringFromDeque();
         result = StringHelper.onlyResult(result);
         deleteAll();
@@ -155,7 +162,11 @@ public class CalculatorService {
     }
 
     private String[] createMatrix() {
-        return SignHelper.transformStringToArray(createStringFromDeque());
+        return createMatrix(createStringFromDeque());
+    }
+
+    private String[] createMatrix(String num) {
+        return SignHelper.transformStringToArray(num);
     }
 
     private static Pair<String, String> createPair(String key, String value) {
@@ -170,6 +181,4 @@ public class CalculatorService {
     private String removeLastChar(String str) {
         return str.substring(0, str.length() - 1);
     }
-
-
 }

@@ -5,7 +5,8 @@
 
         <app-calc-ascii-display [display-items]="items"></app-calc-ascii-display>
         <hr>
-        <app-calc-display [display-items]="items"></app-calc-display>
+        <app-calc-display [display-items]="line"></app-calc-display>
+        <br>
         <!--        <app-calc-buttons></app-calc-buttons>-->
         <app-calc-ascii-buttons (itemsEvent)="receiveItems($event)"></app-calc-ascii-buttons>
       </div>

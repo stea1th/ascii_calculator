@@ -8,14 +8,12 @@ import {DataServiceService} from "../service/data-service.service";
 })
 export class CalcDisplayComponent implements OnInit {
 
-  display: string;
   @Input('display-items') displayItems: string;
 
-  constructor(private dataService: DataServiceService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.dataService.currentMessage.subscribe(data => this.display = data);
   }
 
 }

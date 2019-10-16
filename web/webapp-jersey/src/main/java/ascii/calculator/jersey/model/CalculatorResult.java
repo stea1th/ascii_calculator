@@ -9,8 +9,9 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Result implements Serializable {
+public class CalculatorResult implements Serializable {
 
     private String expression;
     private String result;
+    private String[] matrix;
 }

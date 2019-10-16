@@ -8,6 +8,8 @@ import {Component, OnInit} from '@angular/core';
 export class CalcBodyComponent implements OnInit {
 
   items: [];
+  line: string;
+  calcResult: any;
 
   constructor() { }
 
@@ -15,6 +17,8 @@ export class CalcBodyComponent implements OnInit {
   }
 
   receiveItems($event) {
-    this.items = $event;
+    this.calcResult = $event;
+    this.items = this.calcResult.matrix;
+    this.line = this.calcResult.result;
   }
 }

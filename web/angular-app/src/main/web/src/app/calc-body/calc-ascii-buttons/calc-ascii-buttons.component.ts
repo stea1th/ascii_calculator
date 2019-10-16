@@ -8,9 +8,9 @@ import {CalcServiceService} from "../service/calc-service.service";
 })
 export class CalcAsciiButtonsComponent implements OnInit {
 
-  items: [];
+  calcResult: any;
 
-  @Output() itemsEvent = new EventEmitter<[]>();
+  @Output() itemsEvent = new EventEmitter<any>();
 
   constructor(private calcService: CalcServiceService) {
   }
@@ -21,13 +21,13 @@ export class CalcAsciiButtonsComponent implements OnInit {
 
   showNum(num: string) {
     this.calcService.getAsciiNumber(num).subscribe(data => {
-      this.items = data;
-      this.sendItems();
+      this.calcResult = data;
+      this.sendCalculatorResult();
     });
   }
 
-  sendItems() {
-    this.itemsEvent.emit(this.items);
+  sendCalculatorResult() {
+    this.itemsEvent.emit(this.calcResult);
   }
 
 }
