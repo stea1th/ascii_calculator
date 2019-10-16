@@ -8,13 +8,12 @@ import {DataServiceService} from "../service/data-service.service";
   styleUrls: ['./calc-ascii-display.component.css']
 })
 export class CalcAsciiDisplayComponent implements OnInit {
-   @Input('display-items') displayItems = [];
+  @Input('display-items') displayItems = [];
 
   constructor() {
   }
 
   ngOnInit() {
-
   }
 
 }

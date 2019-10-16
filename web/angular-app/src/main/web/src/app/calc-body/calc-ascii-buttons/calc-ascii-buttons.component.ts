@@ -7,6 +7,7 @@ import {CalcServiceService} from "../service/calc-service.service";
   styleUrls: ['./calc-ascii-buttons.component.css']
 })
 export class CalcAsciiButtonsComponent implements OnInit {
+
   items: [];
 
   @Output() itemsEvent = new EventEmitter<[]>();
@@ -15,10 +16,25 @@ export class CalcAsciiButtonsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.clear();
   }
 
   showNum(num: string) {
-    this.calcService.getAscii(num).subscribe(data => {
+    this.calcService.getAsciiNumber(num).subscribe(data => {
+      this.items = data;
+      this.sendItems();
+    });
+  }
+
+  clear() {
+    this.calcService.clear().subscribe(data => {
+        this.items = data;
+        this.sendItems();
+    });
+  }
+
+  showAction(num: string) {
+    this.calcService.getAction(num).subscribe(data => {
       this.items = data;
       this.sendItems();
     });

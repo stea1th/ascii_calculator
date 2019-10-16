@@ -25,8 +25,16 @@ export class CalcServiceService {
       this.httpOptions).pipe();
   }
 
-  public getAscii(num: string): Observable<any> {
-    return this.http.get<any>(this.baseUrl + '/ascii?num=' + num).pipe();
+  public getAsciiNumber(num: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/ascii/number?num=' + num).pipe();
+  }
+
+  public clear(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/ascii/clear').pipe();
+  }
+
+  public getAction(num: string): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/ascii/action?num=' + num).pipe();
   }
 
 

@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {CalcAsciiButtonsComponent} from "./calc-ascii-buttons/calc-ascii-buttons.component";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-calc-body',
