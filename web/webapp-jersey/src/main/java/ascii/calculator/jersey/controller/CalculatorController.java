@@ -4,16 +4,16 @@ import ascii.calculator.helpers.StringHelper;
 import ascii.calculator.jersey.model.CalculatorResult;
 import ascii.calculator.jersey.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
 
 @Path("/")
-@Component
+@RestController
 public class CalculatorController {
 
     @Autowired
-    CalculatorService service;
+    private CalculatorService service;
 
     @POST
     @Path("result")
