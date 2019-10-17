@@ -40,10 +40,9 @@ public class CalculatorController {
     @Path("/version")
     @Produces("application/json")
     public String getVersion() {
-        props.test();
-        return "Hi!";
-
-//        return commitId;
+        String version =  props.version();
+//        props.version();
+        return version;
     }
 
 }

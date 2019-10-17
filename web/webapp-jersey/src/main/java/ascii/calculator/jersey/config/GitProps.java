@@ -6,15 +6,23 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
 @Configuration
-@PropertySource( value="classpath:git.properties")
+@PropertySource(value = "classpath:git.properties")
 public class GitProps {
 
     @Autowired
     private Environment env;
 
-    public void version() {
-        String name = env.getProperty("git.commit.user.name");
+    public String version() {
+        String name = new StringBuilder().append(env.getProperty("git.build.version"))
+                .append("-")
+                .append(env.getProperty("git.total.commit.count"))
+                .append("-")
+                .append(env.getProperty("git.commit.id.abbrev"))
+                .append("-")
+                .append(env.getProperty("git.build.time"))
+                .toString();
         System.out.println(name);
+        return name;
     }
 
 
