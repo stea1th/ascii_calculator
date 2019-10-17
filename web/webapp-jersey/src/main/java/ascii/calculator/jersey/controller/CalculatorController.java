@@ -40,8 +40,9 @@ public class CalculatorController {
     @Path("/version")
     @Produces("application/json")
     public String getVersion() {
-        System.out.println(props.getTags());
-        return props.getTags();
+        props.test();
+        return "Hi!";
+
 //        return commitId;
     }
 

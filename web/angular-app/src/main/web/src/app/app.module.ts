@@ -11,6 +11,7 @@ import { CalcButtonsComponent } from './calc-body/calc-buttons/calc-buttons.comp
 import { CalcAsciiDisplayComponent } from './calc-body/calc-ascii-display/calc-ascii-display.component';
 import { CalcAsciiButtonsComponent } from './calc-body/calc-ascii-buttons/calc-ascii-buttons.component';
 import { ButtonComponent } from './calc-body/calc-ascii-buttons/button/button.component';
+import { CalcAsciiVersionComponent } from './calc-body/calc-ascii-version/calc-ascii-version.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ButtonComponent } from './calc-body/calc-ascii-buttons/button/button.co
     CalcButtonsComponent,
     CalcAsciiDisplayComponent,
     CalcAsciiButtonsComponent,
-    ButtonComponent
+    ButtonComponent,
+    CalcAsciiVersionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,21 @@
 package ascii.calculator.jersey.config;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 
-@Data
-@ConfigurationProperties(prefix = "git")
+@Configuration
+@PropertySource( value="classpath:git.properties")
 public class GitProps {
 
-    String tags;
+    @Autowired
+    private Environment env;
+
+    public void version() {
+        String name = env.getProperty("git.commit.user.name");
+        System.out.println(name);
+    }
+
+
 }
