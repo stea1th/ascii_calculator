@@ -8,12 +8,13 @@ public class Two extends AbstractCoordinate {
         super();
     }
 
-    public Two(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("2", "ascii.calculator.console.model.numbers.Two");
     }
 
     public void load() {
-        addCoordinates(new Three().getProperties());
-        addCoordinates(3, createArray(0));
+        setCoordinates(new Three().getCoordinates());
+        setCoordinates(3, createArray(0));
     }
 }

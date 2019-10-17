@@ -7,14 +7,15 @@ public class Nine extends AbstractCoordinate {
     public Nine() {
     }
 
-    public Nine(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("9", "ascii.calculator.console.model.numbers.Nine");
     }
 
     @Override
     public void load() {
-        addCoordinates(new Three().getProperties());
-        addCoordinates(1, createArray(0, 4));
+        setCoordinates(new Three().getCoordinates());
+        setCoordinates(1, createArray(0, 4));
 
     }
 }

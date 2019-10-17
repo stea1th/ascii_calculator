@@ -8,12 +8,13 @@ public class Minus extends AbstractCoordinate {
         super();
     }
 
-    public Minus(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("-", "ascii.calculator.console.model.operators.Minus");
     }
 
     @Override
     public void load() {
-        addCoordinates(2, createArrayFromTo(0, 4));
+        setCoordinates(2, createArrayFromTo(0, 4));
     }
 }

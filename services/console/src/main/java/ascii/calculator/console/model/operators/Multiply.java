@@ -8,15 +8,16 @@ public class Multiply extends AbstractCoordinate {
         super();
     }
 
-    public Multiply(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("*", "ascii.calculator.console.model.operators.Multiply");
     }
 
     @Override
     public void load() {
-        addCoordinates(1, createArray(1, 3));
-        addCoordinates(2, createArray(2));
-        addCoordinates(3, createArray(1, 3));
+        setCoordinates(1, createArray(1, 3));
+        setCoordinates(2, createArray(2));
+        setCoordinates(3, createArray(1, 3));
 
     }
 }

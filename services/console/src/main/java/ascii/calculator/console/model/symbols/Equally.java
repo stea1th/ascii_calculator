@@ -8,12 +8,13 @@ public class Equally extends AbstractCoordinate {
         super();
     }
 
-    public Equally(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("=", "ascii.calculator.console.model.symbols.Equally");
     }
 
     public void load() {
-        addCoordinates(1, createArrayFromTo(0, 3));
-        addCoordinates(3, createArrayFromTo(0, 3));
+        setCoordinates(1, createArrayFromTo(0, 3));
+        setCoordinates(3, createArrayFromTo(0, 3));
     }
 }

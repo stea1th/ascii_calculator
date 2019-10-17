@@ -19,13 +19,13 @@ export class CalcServiceService {
 
   public postResult(num: string): Observable<any> {
 
-    return this.http.post<any>(this.baseUrl + '/result', {
+    return this.http.post<any>(this.baseUrl + '/api/result', {
         expression: num
       },
       this.httpOptions).pipe();
   }
 
   public getAsciiNumber(num: string): Observable<any> {
-    return this.http.get<any>(this.baseUrl + '/ascii/number?num=' + num).pipe();
+    return this.http.get<any>(this.baseUrl + '/api/calculator?num=' + num).pipe();
   }
 }

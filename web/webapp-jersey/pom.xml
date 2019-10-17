@@ -15,10 +15,10 @@
     <name>Webapp Jersey</name>
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>
@@ -49,12 +49,37 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>${git-commit.version}</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>validate-the-git-infos</id>
+                        <goals>
+                            <goal>validateRevision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+<!--                    <generateGitPropertiesFilename>-->
+<!--                        ${project.build.outputDirectory}/calculator.properties-->
+<!--                    </generateGitPropertiesFilename>-->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <properties>
         <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
         <lombok.version>1.18.10</lombok.version>
+        <git-commit.version>3.0.1</git-commit.version>
     </properties>
 
     <dependencyManagement>
@@ -72,6 +97,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jersey</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
         <dependency>

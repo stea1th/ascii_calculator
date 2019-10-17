@@ -24,7 +24,7 @@ public class Sign implements SignInterface {
     public <T extends AbstractCoordinate> Sign(T coordinate) {
         this.width = coordinate.getWidth();
         createEmptyMatrix();
-        this.properties = coordinate.getProperties() != null ? coordinate.getProperties() : new HashMap<>();
+        this.properties = coordinate.getCoordinates() != null ? coordinate.getCoordinates() : new HashMap<>();
         create();
     }
 

@@ -8,13 +8,14 @@ public class Plus extends AbstractCoordinate {
         super();
     }
 
-    public Plus(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("+", "ascii.calculator.console.model.operators.Plus");
     }
 
     public void load() {
-        addCoordinates(1, createArray(2));
-        addCoordinates(2, createArrayFromTo(0, 4));
-        addCoordinates(3, createArray(2));
+        setCoordinates(1, createArray(2));
+        setCoordinates(2, createArrayFromTo(0, 4));
+        setCoordinates(3, createArray(2));
     }
 }

@@ -7,16 +7,17 @@ public class Divide extends AbstractCoordinate {
     public Divide() {
     }
 
-    public Divide(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("/", "ascii.calculator.console.model.operators.Divide");
     }
 
     @Override
     public void load() {
-        addCoordinates(0, createArray(4));
-        addCoordinates(1, createArray(3));
-        addCoordinates(2, createArray(2));
-        addCoordinates(3, createArray(1));
-        addCoordinates(4, createArray(0));
+        setCoordinates(0, createArray(4));
+        setCoordinates(1, createArray(3));
+        setCoordinates(2, createArray(2));
+        setCoordinates(3, createArray(1));
+        setCoordinates(4, createArray(0));
     }
 }

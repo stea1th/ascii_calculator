@@ -28,7 +28,7 @@ class SignHelperTest {
     }
 
     @Test
-    void printResultTest() {
+    void printResult_correctInput_correctStringContained() {
         PrintStream stream = System.out;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
@@ -38,6 +38,11 @@ class SignHelperTest {
         String output = new String(baos.toByteArray());
         assertTrue(output.contains("xxxxx xxxxx "));
     }
+
+    void printResult_inputContainsFalseData_ExceptionThrown() {
+
+    }
+
 
     @Test
     void transformToListTest() {

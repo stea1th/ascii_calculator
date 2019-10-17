@@ -4,15 +4,20 @@ import ascii.calculator.console.model.AbstractCoordinate;
 
 public class Point extends AbstractCoordinate {
 
+    private final static int WIDTH = 3;
+
     public Point() {
+        super(WIDTH);
     }
 
-    public Point(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses(".", "ascii.calculator.console.model.symbols.Point");
+        addToRegisteredClasses(",", "ascii.calculator.console.model.symbols.Point");
     }
 
     @Override
     public void load() {
-        addCoordinates(4, createArray(1));
+        setCoordinates(4, createArray(1));
     }
 }

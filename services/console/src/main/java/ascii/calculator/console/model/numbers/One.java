@@ -8,16 +8,18 @@ public class One extends AbstractCoordinate {
         super();
     }
 
-    public One(int width) {
-        super(width);
+    @Override
+    public void register() {
+        addToRegisteredClasses("1", "ascii.calculator.console.model.numbers.One");
     }
 
+
     public void load() {
-        addCoordinates(0, createArray(4));
-        addCoordinates(1, createArray(2, 4));
-        addCoordinates(2, createArray(0, 4));
-        addCoordinates(3, createArray(4));
-        addCoordinates(4, createArray(4));
+        setCoordinates(0, createArray(4));
+        setCoordinates(1, createArray(2, 4));
+        setCoordinates(2, createArray(0, 4));
+        setCoordinates(3, createArray(4));
+        setCoordinates(4, createArray(4));
     }
 
 }
