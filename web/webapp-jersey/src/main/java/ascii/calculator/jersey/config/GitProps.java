@@ -13,16 +13,13 @@ public class GitProps {
     private Environment env;
 
     public String version() {
-        String name = new StringBuilder().append(env.getProperty("git.build.version"))
-                .append("-")
-                .append(env.getProperty("git.total.commit.count"))
-                .append("-")
-                .append(env.getProperty("git.commit.id.abbrev"))
-                .append("-")
-                .append(env.getProperty("git.build.time"))
-                .toString();
-        System.out.println(name);
-        return name;
+        return env.getProperty("git.build.version") +
+                "-" +
+                env.getProperty("git.total.commit.count") +
+                "-" +
+                env.getProperty("git.commit.id.abbrev") +
+                "-" +
+                env.getProperty("git.build.time");
     }
 
 

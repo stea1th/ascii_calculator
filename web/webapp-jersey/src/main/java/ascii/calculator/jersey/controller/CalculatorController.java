@@ -5,6 +5,8 @@ import ascii.calculator.jersey.config.GitProps;
 import ascii.calculator.jersey.model.CalculatorResult;
 import ascii.calculator.jersey.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.*;
@@ -36,13 +38,11 @@ public class CalculatorController {
         return service.createResult(num);
     }
 
-//    @GET
-//    @Path("/version")
-//    @Produces("application/json")
-//    public String getVersion() {
-//        String version =  props.version();
-////        props.version();
-//        return version;
-//    }
+    @GET
+    @Path("/version")
+    @Produces("application/json")
+    public ResponseEntity getVersion() {
+        return new ResponseEntity<>(props.version().split("\\+")[0], HttpStatus.OK);
+    }
 
 }

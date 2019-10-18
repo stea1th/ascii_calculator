@@ -13,8 +13,11 @@ export class CalcAsciiVersionComponent implements OnInit {
   constructor(private calcService: CalcServiceService) { }
 
   ngOnInit() {
-    // this.calcService.getVersion().subscribe(data=> this.version = data);
-    this.version= "Hallo!";
+    this.calcService.getVersion().subscribe(data=> {
+      console.log(data.body);
+      this.version = data.body;
+    });
+    // this.version= "Hallo!";
   }
 
 }

@@ -29,7 +29,7 @@ export class CalcServiceService {
     return this.http.get<any>(this.baseUrl + '/api/calculator?num=' + num).pipe();
   }
 
-  public getVersion(): Observable<string> {
-    return this.http.get<string>(this.baseUrl + '/api/version').pipe();
+  public getVersion(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/api/version').pipe();
   }
 }
