@@ -14,11 +14,13 @@ public class SignFactory {
     }
 
     static {
-        Set<Class<? extends AbstractCoordinate>> subTypes = new Reflections().getSubTypesOf(AbstractCoordinate.class);
+        Reflections reflections = new Reflections();
+        Set<Class<? extends AbstractCoordinate>> subTypes = reflections.getSubTypesOf(AbstractCoordinate.class);
         subTypes.forEach(i -> {
             try {
                 i.getMethod("register").invoke(i.newInstance());
             } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException | InstantiationException e) {
+                System.out.println("Kukaracha ==================================");
                 e.printStackTrace();
             }
         });
@@ -28,6 +30,7 @@ public class SignFactory {
         try {
             return new Sign(AbstractCoordinate.newInstance(character));
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException e) {
+            System.out.println("Kukaracha2 ================================");
             e.printStackTrace();
         }
         return null;

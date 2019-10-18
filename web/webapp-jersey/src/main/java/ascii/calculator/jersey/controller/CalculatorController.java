@@ -1,7 +1,6 @@
 package ascii.calculator.jersey.controller;
 
 import ascii.calculator.helpers.StringHelper;
-import ascii.calculator.jersey.config.GitProps;
 import ascii.calculator.jersey.model.CalculatorResult;
 import ascii.calculator.jersey.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,6 @@ public class CalculatorController {
 
     @Autowired
     private CalculatorService service;
-
-    @Autowired
-    private GitProps props;
-
 
     @POST
     @Path("result")
@@ -35,14 +30,4 @@ public class CalculatorController {
     public CalculatorResult getAsciiNumber(@QueryParam("num") String num) {
         return service.createResult(num);
     }
-
-    @GET
-    @Path("/version")
-    @Produces("application/json")
-    public String getVersion() {
-        System.out.println(props.getTags());
-        return props.getTags();
-//        return commitId;
-    }
-
 }
