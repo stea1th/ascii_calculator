@@ -36,13 +36,13 @@ public class CalculatorController {
         return service.createResult(num);
     }
 
-    @GET
-    @Path("/version")
-    @Produces("application/json")
-    public String getVersion() {
-        String version =  props.version();
-//        props.version();
-        return version;
-    }
+//    @GET
+//    @Path("/version")
+//    @Produces("application/json")
+//    public String getVersion() {
+//        String version =  props.version();
+////        props.version();
+//        return version;
+//    }
 
 }

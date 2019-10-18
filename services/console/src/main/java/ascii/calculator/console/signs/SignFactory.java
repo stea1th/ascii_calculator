@@ -14,7 +14,8 @@ public class SignFactory {
     }
 
     static {
-        Set<Class<? extends AbstractCoordinate>> subTypes = new Reflections().getSubTypesOf(AbstractCoordinate.class);
+        Reflections reflections = new Reflections(AbstractCoordinate.class);
+        Set<Class<? extends AbstractCoordinate>> subTypes = reflections.getSubTypesOf(AbstractCoordinate.class);
         subTypes.forEach(i -> {
             try {
                 i.getMethod("register").invoke(i.newInstance());
